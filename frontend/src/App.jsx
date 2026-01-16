@@ -31,7 +31,7 @@ import Mcexp from "./components/Expcomponent/Mcexp.jsx"
 import Iotexp from "./components/Expcomponent/Iotexp.jsx";
 import Cssexp from "./components/Expcomponent/Cssexp.jsx";
 import Aiexp from "./components/Expcomponent/Aiexp.jsx";
-import Spccexp from "./components/ExpComponent/Spccexp.jsx";
+import Spccexp from "./components/Expcomponent/Spccexp.jsx";
 
 // import Login from "./components/Auth/Login.jsx";
 
