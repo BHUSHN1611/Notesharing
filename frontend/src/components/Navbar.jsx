@@ -1,8 +1,17 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+ //all navigation route 
+  const Notesnavigate = () => {navigate("/viewallnotes")};
+  const Expnavigate = () => {navigate("/viewallexp")};
+  const Qpnavigate = () => {navigate("/viewallqp")};
+  const Uploadnavigate = () => {navigate("/upload")};
+
 
   return (
     <nav className="bg-linear-to-r from-indigo-600 to-blue-600  shadow-md rounded-md">
@@ -25,18 +34,18 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex gap-6 text-white text-lg items-center">
-            <a href="/viewallnotes" className="hover:text-blue-200 transition">
+            <button onClick={Notesnavigate} className="hover:text-blue-200 transition">
               NOTES
-            </a>
-            <a href="/viewallexp" className="hover:text-blue-200 transition">
+            </button>
+            <button onClick={Expnavigate} className="hover:text-blue-200 transition">
               EXPERIMENT
-            </a>
-            <a href="/viewallqp" className="hover:text-blue-200 transition">
+            </button>
+            <button onClick={Qpnavigate} className="hover:text-blue-200 transition">
               QUESTION-PAPER
-            </a>
-            <a href="/upload" className="hover:text-blue-200 transition">
+            </button>
+            <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
-            </a>
+            </button>
             <a href="/login" className="bg-linear-to-r from-amber-600 to-orange-600 text-white py-2 px-4 rounded-md hover:from-indigo-700 hover:to-blue-700 transition-all transform hover:scale-105 hover:shadow-xl">
               Sign-up
             </a>
