@@ -55,18 +55,18 @@ export default function Navbar() {
         {/* Mobile Nav Links */}
         {isOpen && (
           <div className="lg:hidden mt-4 pb-2 flex flex-col gap-3 text-white text-lg">
-            <a href="/viewallnotes" className="hover:text-blue-200 transition py-2">
+            <button onClick={Notesnavigate} className="hover:text-blue-200 transition">
               NOTES
-            </a>
-            <a href="/viewallexp" className="hover:text-blue-200 transition py-2">
+            </button>
+            <button onClick={Expnavigate} className="hover:text-blue-200 transition">
               EXPERIMENT
-            </a>
-            <a href="/viewallqp" className="hover:text-blue-200 transition py-2">
+            </button>
+            <button onClick={Qpnavigate} className="hover:text-blue-200 transition">
               QUESTION-PAPER
-            </a>
-            <a href="/upload" className="hover:text-blue-200 transition py-2">
+            </button>
+            <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
-            </a>
+            </button>
             <a href="/login" className="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition inline-block text-center mt-2">
               Sign-up
             </a>

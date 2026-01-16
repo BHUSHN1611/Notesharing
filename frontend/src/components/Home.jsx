@@ -5,6 +5,7 @@ import { API_URL } from '../config.js';
 
 
 const Home = () => {
+  console.log(`${API_URL}/file/viewexp`)
   const [NumbersofNotes,setNumberofnotes] = useState(0)
   const [NumbersofExp,setNumberofexp] = useState(0)
   const [NumbersofQp,setNumberofqp] = useState(0)
@@ -21,8 +22,7 @@ const Home = () => {
      const NumbersofQp = qpres.data.length;
      setNumberofqp(Number(NumbersofQp))
     } catch (error) {
-      console.log("error happen at home",API_URL)
-      
+      console.error("Home API error:", error.response?.data || error.message)
     }
 
   } 
