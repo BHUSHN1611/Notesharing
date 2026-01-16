@@ -15,7 +15,7 @@ import Ainotes from "../src/components/Notescomponents/Ainotes.jsx";
 import Iotnotes from "../src/components/Notescomponents/Iotnotes.jsx"
 
 
-import Mcqp from "../src/components/QpComponents/Mcqp.jsx";
+import Mcqp from "./components/Qpcomponents/Mcqp.jsx";
 import Aiqp from "./components/Qpcomponents/Aiqp.jsx"
 import Spccqp from './components/Qpcomponents/Spccqp.jsx'
 import Iotqp from "./components/Qpcomponents/Iotqp.jsx"
