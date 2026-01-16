@@ -12,15 +12,14 @@ const Home = () => {
   const getNumbers = async() => {
     try {
      const notesres = await axios.get(`${API_URL}/file/viewnotes`);
-     const NumbersofNotes = notesres.data.length
+     const NumbersofNotes = notesres.data.length;
      setNumberofnotes(Number(NumbersofNotes))
      const expres = await axios.get(`${API_URL}/file/viewexp`)
-     const NumbersofExp = expres.data.length
+     const NumbersofExp = expres.data.length;
      setNumberofexp(Number(NumbersofExp))
-     const qpres = await axios.get(`${API_URL}/file//viewqp`)
-     const NumbersofQp = qpres.data.length
+     const qpres = await axios.get(`${API_URL}/file/viewqp`)
+     const NumbersofQp = qpres.data.length;
      setNumberofqp(Number(NumbersofQp))
-      
     } catch (error) {
       console.log("error happen at home")
       
