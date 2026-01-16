@@ -27,12 +27,12 @@ import Notes from '../src/components/Notescomponents/Notes.jsx'
 import Question from '../src/components/Qpcomponents/Question.jsx'
 import Experiement from "./components/Expcomponent/Experiement.jsx";
 
-import Mcexp from "../src/components/Expcomponent/Mcexp.jsx"
-import Iotexp from "../src/components/Expcomponent/Iotexp.jsx";
-import Cssexp from "../src/components/Expcomponent/Cssexp.jsx";
-import Aiexp from "../src/components/ExpComponent/Aiexp.jsx";
+import Mcexp from "./components/Expcomponent/Mcexp.jsx"
+import Iotexp from "./components/Expcomponent/Iotexp.jsx";
+import Cssexp from "./components/Expcomponent/Cssexp.jsx";
+import Aiexp from "./components/Expcomponent/Aiexp.jsx";
 import Spccexp from "./components/ExpComponent/Spccexp.jsx";
-import Download from "./components/Download.jsx";
+
 // import Login from "./components/Auth/Login.jsx";
 
 
