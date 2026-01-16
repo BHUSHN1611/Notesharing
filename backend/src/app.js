@@ -19,8 +19,8 @@ app.get('/',(req,res)=>{
     res.send("Hey Welcome to Note-sharing")
 })
 
-import healthCheckRouter from './routes/healthcheck.route.js'
-import  fileRouter from './routes/file.route.js'
+import healthCheckRouter from './routes/healthcheck.route.js';
+import  fileRouter from './routes/file.route.js';
 
 app.use('/health',healthCheckRouter)
 app.use("/file",fileRouter)
