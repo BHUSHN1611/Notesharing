@@ -4,7 +4,7 @@ import Download from '../Download'
 const Iotqp = () => {
   return (
     <div>
-      <Download url={"http://localhost:8000/file/viewqp"} sub={'iot'} subname={'Internet of things'}/>
+      <Download url={"/file/viewqp"} sub={'iot'} subname={'Internet of things'}/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Download, FileText, AlertCircle } from 'lucide-react';
-
+import { API_URL } from '../config.js';
 const Structure = ({ notes, subject }) => {
   const hasNotes = notes && notes.length > 0;
 
@@ -44,7 +44,7 @@ const Structure = ({ notes, subject }) => {
 
               {/* Download Button */}
               <a
-                href={`http://localhost:8000/file/download/${note._id}`}
+                href={`${API_URL}/file/download/${note._id}`}
                 className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <Download size={18} />

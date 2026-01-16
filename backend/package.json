@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon -r dotenv/config src/index.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "build": "echo 'No build required'"
+
   },
   "keywords": [],
   "author": "",

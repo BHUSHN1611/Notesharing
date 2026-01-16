@@ -3,13 +3,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from "./components/Home.jsx"
 
 import Uploadfile from "./components/Uploadfile.jsx";
-// import Notfound from "./components/Notfound.jsx";
+
 import Navbar from "./components/Navbar.jsx";
 
-// import Viewall from "./components/Viewall.jsx";
-// import Viewallnotes from "./components/NotesComponent/Viewnotes.jsx";
 
-
+import Notfound from "./components/Notfound.jsx";
 import Mcnotes from "./components/Notescomponents/Mcnotes.jsx";
 import Spccnotes from "../src/components/Notescomponents/Spccnotes.jsx"
 import Cssnotes from "../src/components/Notescomponents/Cssnotes.jsx"
@@ -48,7 +46,7 @@ function App() {
       <Navbar/>
        
       <Routes>
-        {/* <Route path="/*" element={<Notfound/>}/> */}
+        <Route path="/*" element={<Notfound/>}/>
         <Route path="/" element={<Home />} />
 
         {/* <Route path="/signup" element={<Signup/>} /> */}
@@ -82,9 +80,6 @@ function App() {
         <Route path="/aiexp" element={<Aiexp/>}/>
         <Route path="/iotexp" element={<Iotexp/>}/>
         <Route path="/cssexp" element={<Cssexp/>}/>
-
-        <Route path="/test" element={<Download url={"http://localhost:8000/file/viewnotes"} sub={'ai'} subname={'DMMS'}/>}/>
-
         
 
       </Routes>

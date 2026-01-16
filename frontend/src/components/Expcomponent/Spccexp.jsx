@@ -4,7 +4,7 @@ import Download from '../Download'
 const Spccexp = () => {
   return (
     <div>
-      <Download url={"http://localhost:8000/file/viewexp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
+      <Download url={"/file/viewexp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
     </div>
   )
 }

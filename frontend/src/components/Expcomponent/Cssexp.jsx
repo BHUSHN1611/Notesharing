@@ -4,7 +4,7 @@ import Download from '../Download'
 const Cssexp = () => {
   return (
     <div>
-      <Download url={"http://localhost:8000/file/viewexp"} sub={'css'} subname={'Cyrtography and System Security'}/>
+      <Download url={"/file/viewexp"} sub={'css'} subname={'Cyrtography and System Security'}/>
     </div>
   )
 }

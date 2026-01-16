@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Upload, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../config.js';
 
 const Uploadfile = () => {
   const [file, setFile] = useState(null);
@@ -34,7 +35,7 @@ const Uploadfile = () => {
     console.log(formData)
 
     try {
-      await axios.post("http://localhost:8000/file/upload", formData);
+      await axios.post(`${API_URL}/file/upload`, formData);
       showNotification('success', 'File uploaded successfully!');
       setFile(null);
       setSubject(null);

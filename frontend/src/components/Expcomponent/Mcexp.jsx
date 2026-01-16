@@ -4,7 +4,7 @@ import Download from '../Download'
 const Mcexp = () => {
   return (
     <div>
-      <Download url={"http://localhost:8000/file/viewexp"} sub={'mc'} subname={'Mobile Computing'}/>
+      <Download url={"/file/viewexp"} sub={'mc'} subname={'Mobile Computing'}/>
     </div>
   )
 }

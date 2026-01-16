@@ -4,7 +4,7 @@ import Download from '../Download'
 const Cssqp = () => {
   return (
     <div>
-      <Download url={"http://localhost:8000/file/viewqp"} sub={'css'} subname={'Cyrtography and System Security'}/>
+      <Download url={"/file/viewqp"} sub={'css'} subname={'Cyrtography and System Security'}/>
     </div>
   )
 }

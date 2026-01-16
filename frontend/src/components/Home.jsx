@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles } from 'lucide-react';
 import axios from 'axios'
+import { API_URL } from '../config.js';
 
 
 const Home = () => {
@@ -10,13 +11,13 @@ const Home = () => {
 
   const getNumbers = async() => {
     try {
-     const notesres = await axios.get("http://localhost:8000/file/viewnotes");
+     const notesres = await axios.get(`${API_URL}/file/viewnotes`);
      const NumbersofNotes = notesres.data.length
      setNumberofnotes(Number(NumbersofNotes))
-     const expres = await axios.get("http://localhost:8000/file/viewexp")
+     const expres = await axios.get(`${API_URL}/file/viewexp`)
      const NumbersofExp = expres.data.length
      setNumberofexp(Number(NumbersofExp))
-     const qpres = await axios.get("http://localhost:8000/file/viewqp")
+     const qpres = await axios.get(`${API_URL}/file//viewqp`)
      const NumbersofQp = qpres.data.length
      setNumberofqp(Number(NumbersofQp))
       
