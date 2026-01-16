@@ -21,7 +21,7 @@ const Home = () => {
      const NumbersofQp = qpres.data.length;
      setNumberofqp(Number(NumbersofQp))
     } catch (error) {
-      console.log("error happen at home")
+      console.log("error happen at home",API_URL)
       
     }
 

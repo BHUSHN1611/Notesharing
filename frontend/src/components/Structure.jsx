@@ -3,7 +3,6 @@ import { Download, FileText, AlertCircle } from 'lucide-react';
 import { API_URL } from '../config.js';
 const Structure = ({ notes, subject }) => {
   const hasNotes = notes && notes.length > 0;
-
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
