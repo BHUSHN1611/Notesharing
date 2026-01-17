@@ -14,7 +14,7 @@ export default function Navbar() {
 
 
   return (
-    <nav className="bg-linear-to-r from-indigo-600 to-blue-600  shadow-md rounded-md">
+    <nav className="bg-linear-to-r from-indigo-600 to-blue-600  shadow-md rounded-b-lg">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           

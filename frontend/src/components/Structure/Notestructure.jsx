@@ -15,6 +15,15 @@ const Notestructure = ({ notes, subject }) => {
  
       }}
 
+    const NoteshandleView = (noteId) => {
+      try {
+        window.open(`${API_URL}/file/notes/view/${noteId}`);
+      
+      } catch (error) {
+        console.log("Error occured at viewing",error);
+ 
+      }}
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
@@ -54,15 +63,27 @@ const Notestructure = ({ notes, subject }) => {
               <p className="text-sm text-gray-600 mb-4">{note.subject}</p>
 
               {/* Download Button */}
-              <button
+              <div className='flex gap-2 w-full justify-center'>
+                <button
               onClick={()=>{NoteshandleDownload(note._id)}}
-                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-green-600 text-white font-medium rounded-lg hover:bg-green-700 transition-colors"
               >
                 {/* <Link to={`${API_URL}/file/notes/download/${note._id}`}> */}
                 <Download size={18} />
                 Download
                 {/* </Link> */}
               </button>
+              {/* View Button */}
+              <button
+              onClick={()=>{NoteshandleView(note._id)}}
+                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                {/* <Link to={`${API_URL}/file/notes/download/${note._id}`}> */}
+                <Download size={18} />
+                View
+                {/* </Link> */}
+              </button>
+              </div>
             </div>
           ))}
         </div>

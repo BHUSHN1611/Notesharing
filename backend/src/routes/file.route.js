@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {fileUpload,viewAllFiles,downloadNotesFile,downloadQpFile,downloadExpFile,viewNotes,viewExp, viewQp} from "../controllers/file.controllers.js"
+import {fileUpload,viewAllFiles,downloadNotesFile,downloadQpFile,downloadExpFile,viewNotes,viewExp, viewQp,viewNotesFile,viewQpFile,viewExpFile} from "../controllers/file.controllers.js"
 import multer from 'multer'
 
 
@@ -12,6 +12,10 @@ router.route("/upload").post(upload.single("pdf"),fileUpload);
 router.route("/notes/download/:id").get(downloadNotesFile)
 router.route("/exp/download/:id").get(downloadExpFile)
 router.route("/qp/download/:id").get(downloadQpFile)
+// /file/notes/view/:id
+router.route("/notes/view/:id").get(viewNotesFile)
+router.route("/qp/view/:id").get(viewQpFile)
+router.route("/exp/view/:id").get(viewExpFile)
 
 router.route("/viewall").get(viewAllFiles)
 

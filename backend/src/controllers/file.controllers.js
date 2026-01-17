@@ -129,6 +129,81 @@ const downloadQpFile = asyncHandler(async(req,res)=>{
    
 })
 
+const viewNotesFile = asyncHandler(async(req,res)=>{
+    try {
+    console.log("View ID:", req.params)
+    const note = await Notes.findById(req.params.id)
+    if (!note) return res.status(404).send("Note not found",req.params.id)
+
+    const response = await axios.get(note.fileUrl, {
+      responseType: "stream"
+    })
+
+    // Force browser download
+    res.setHeader(
+      "Content-Disposition",
+      `inline; filename="${note.title}"`
+    )
+    res.setHeader("Content-Type", "application/pdf")
+
+    response.data.pipe(res)
+
+  } catch (err) {
+    console.error("DOWNLOAD ERROR:", err)
+    res.status(500).send("Download failed")
+  }
+   
+})
+const viewQpFile = asyncHandler(async(req,res)=>{
+    try {
+    console.log("View ID:", req.params)
+    const qp = await Qp.findById(req.params.id)
+    if (!qp) return res.status(404).send("Note not found",req.params.id)
+
+    const response = await axios.get(qp.fileUrl, {
+      responseType: "stream"
+    })
+
+    // Force browser download
+    res.setHeader(
+      "Content-Disposition",
+      `inline; filename="${qp.title}"`
+    )
+    res.setHeader("Content-Type", "application/pdf")
+
+    response.data.pipe(res)
+
+  } catch (err) {
+    console.error("DOWNLOAD ERROR:", err)
+    res.status(500).send("Download failed")
+  }
+   
+})
+const viewExpFile = asyncHandler(async(req,res)=>{
+    try {
+    console.log("View ID:", req.params)
+    const exp = await Exp.findById(req.params.id)
+    if (!exp) return res.status(404).send("Note not found",req.params.id)
+
+    const response = await axios.get(exp.fileUrl, {
+      responseType: "stream"
+    })
+
+    // Force browser download
+    res.setHeader(
+      "Content-Disposition",
+      `inline; filename="${exp.title}"`
+    )
+    res.setHeader("Content-Type", "application/pdf")
+
+    response.data.pipe(res)
+
+  } catch (err) {
+    console.error("DOWNLOAD ERROR:", err)
+    res.status(500).send("Download failed")
+  }
+   
+})
 
 
 const viewNotes = asyncHandler(async(req,res)=>{
@@ -160,4 +235,4 @@ const viewExp = asyncHandler(async(req,res)=>{
     res.status(500).json({ message: "Failed to fetch notes" })
   }
 })
-export {fileUpload,viewAllFiles,downloadNotesFile,downloadExpFile,downloadQpFile,viewNotes,viewExp,viewQp}
+export {fileUpload,viewAllFiles,downloadNotesFile,downloadExpFile,downloadQpFile,viewNotes,viewExp,viewQp,viewNotesFile,viewQpFile,viewExpFile}

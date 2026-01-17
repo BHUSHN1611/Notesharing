@@ -40,7 +40,7 @@ import Spccexp from "./components/Expcomponent/Spccexp.jsx";
 
 function App() {
   return(
-    <div className="h-full m-2  bg-linear-to-br from-blue-50 to-indigo-100">
+    <div className="h-full  bg-linear-to-br from-blue-50 to-indigo-100">
       <BrowserRouter> 
 
       <Navbar/>
