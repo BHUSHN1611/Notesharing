@@ -54,7 +54,7 @@ const viewAllFiles = asyncHandler(async(req,res)=>{
 const downloadFile = asyncHandler(async(req,res)=>{
     try {
     const note = await Notes.findById(req.params.id)
-    if (!note) return res.status(404).send("Note not found")
+    if (!note) return res.status(404).send("Note not found",req.params.id)
 
     const response = await axios.get(note.fileUrl, {
       responseType: "stream"
