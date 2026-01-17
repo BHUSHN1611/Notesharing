@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Qpdownload from "../Download/Qpdownload"
 
 const Mcqp = () => {
   return (
     <div>
-      <Download url={"/file/viewqp"} sub={'mc'} subname={'Mobile Computing'}/>
+      <Qpdownload url={"/file/viewqp"} sub={'mc'} subname={'Mobile Computing'}/>
     </div>
   )
 }

@@ -1,10 +1,10 @@
-import Structure from "./Structure"
+import Notestructure from "../Structure/Notestructure.jsx";
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import { API_URL } from '../config.js';
+import { API_URL } from '../../config.js';
 
 
-const Download = ({ url, sub, subname }) => {
+const Notesdownload = ({ url, sub, subname }) => {
   const [files, setFiles] = useState([])
 
   const fetchFiledata = async() => {
@@ -23,9 +23,9 @@ const Download = ({ url, sub, subname }) => {
   
   return (
     <div>
-      <Structure notes={files} subject={subname}/>  
+      <Notestructure notes={files} subject={subname}/>  
     </div>
   )
 }
 
-export default Download
+export default Notesdownload

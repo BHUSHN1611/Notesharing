@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Qpdownload from "../Download/Qpdownload"
 
 const Spccqp = () => {
   return (
     <div>
-      <Download url={"/file/viewqp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
+      <Qpdownload url={"/file/viewqp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
     </div>
   )
 }

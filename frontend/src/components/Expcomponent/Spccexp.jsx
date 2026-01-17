@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Expdownload from "../Download/Expdownload"
 
 const Spccexp = () => {
   return (
     <div>
-      <Download url={"/file/viewexp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
+      <Expdownload url={"/file/viewexp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
     </div>
   )
 }

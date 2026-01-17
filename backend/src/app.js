@@ -8,9 +8,9 @@ app.use(express.json()) // it allows to send the json data
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 
-// cors configuration 
+// cors configurati on 
 app.use(cors({
-  origin: ['https://notesharing-frontend-a50k.onrender.com', 'http://localhost:5174'],
+  origin: ['https://notesharing-frontend-a50k.onrender.com', 'http://localhost:5173','http://localhost:5174'],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }))
@@ -26,5 +26,5 @@ app.use('/health',healthCheckRouter)
 app.use("/file",fileRouter)
 
 // "/file/upload" 
-export default app
+export default app;
 

@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Qpdownload from "../Download/Qpdownload"
 
 const Iotqp = () => {
   return (
     <div>
-      <Download url={"/file/viewqp"} sub={'iot'} subname={'Internet of things'}/>
+      <Qpdownload url={"/file/viewqp"} sub={'iot'} subname={'Internet of things'}/>
     </div>
   )
 }

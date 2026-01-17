@@ -7,9 +7,14 @@ import { useNavigate } from 'react-router';
 
 const Home = () => {
   console.log(`${API_URL}/file/viewexp`)
-  const [NumbersofNotes,setNumberofnotes] = useState(0)
-  const [NumbersofExp,setNumberofexp] = useState(0)
-  const [NumbersofQp,setNumberofqp] = useState(0)
+
+  const [NumbersofNotes,setNumberofnotes] = useState(0 || localStorage.getItem(no_of_notes))
+  const [NumbersofExp,setNumberofexp] = useState(0 || localStorage.getItem(no_of_exp)) 
+  const [NumbersofQp,setNumberofqp] = useState(0|| localStorage.getItem(no_of_qp))
+
+  var no_of_notes = localStorage.setItem('NumbersofNotes',NumbersofNotes)
+  var no_of_exp = localStorage.setItem('NumbersofExp',NumbersofExp)
+  var no_of_qp = localStorage.setItem('NumbersofQp',NumbersofQp)
 
   const navigate = useNavigate()
 

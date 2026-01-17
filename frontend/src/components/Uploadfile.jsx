@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import { Upload, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import axios from 'axios';
 import { API_URL } from '../config.js';
+import { useNavigate } from 'react-router';
 
 const Uploadfile = () => {
+  const navigate = useNavigate();
+  const Uploadnavigate = () => {navigate("/upload");console.log("Navigated")};
+
   const [file, setFile] = useState(null);
   const [fileType, setFileType] = useState('Notes');
   const [subject, setSubject] = useState('SPCC');
@@ -23,7 +27,7 @@ const Uploadfile = () => {
 
   const uploadFile = async (e) => {
     e.preventDefault();
-    if (!file) {
+    if (!file || !fileType || !subject)  {
       showNotification('error', 'Please select a file');
       return;
     }
@@ -37,11 +41,12 @@ const Uploadfile = () => {
     try {
       await axios.post(`${API_URL}/file/upload`, formData);
       showNotification('success', 'File uploaded successfully!');
-      setFile(null);
-      setSubject(null);
-      setFileType(null);
 
-      handleReload();
+      Uploadnavigate();
+      setFile(null);
+
+      setSubject((prevsubject)=>prevsubject);
+      setFileType((prevtype)=>prevtype);
 
     } catch (error) {
       console.error("Error while uploading", error);

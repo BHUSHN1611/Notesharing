@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Notesdownload from "../Download/Notesdownload"
 
 const Cssnotes = () => {
   return (
     <div>
-      <Download url={"/file/viewnotes"} sub={'css'} subname={'Cyrtography and System Security'}/>
+      <Notesdownload url={"/file/viewnotes"} sub={'css'} subname={'Cyrtography and System Security'}/>
     </div>
   )
 }

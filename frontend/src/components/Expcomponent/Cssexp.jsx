@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Expdownload from "../Download/Expdownload"
 
 const Cssexp = () => {
   return (
     <div>
-      <Download url={"/file/viewexp"} sub={'css'} subname={'Cyrtography and System Security'}/>
+      <Expdownload url={"/file/viewexp"} sub={'css'} subname={'Cyrtography and System Security'}/>
     </div>
   )
 }

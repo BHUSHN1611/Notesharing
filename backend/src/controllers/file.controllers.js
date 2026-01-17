@@ -51,8 +51,10 @@ const viewAllFiles = asyncHandler(async(req,res)=>{
 }
 
 })
-const downloadFile = asyncHandler(async(req,res)=>{
+// download function
+const downloadNotesFile = asyncHandler(async(req,res)=>{
     try {
+    console.log("Download ID:", req.params)
     const note = await Notes.findById(req.params.id)
     if (!note) return res.status(404).send("Note not found",req.params.id)
 
@@ -75,6 +77,60 @@ const downloadFile = asyncHandler(async(req,res)=>{
   }
    
 })
+
+const downloadExpFile = asyncHandler(async(req,res)=>{
+    try {
+    console.log("Download ID:", req.params)
+    const exp = await Exp.findById(req.params.id)
+    if (!exp) return res.status(404).send("Note not found",req.params.id)
+
+    const response = await axios.get(exp.fileUrl, {
+      responseType: "stream"
+    })
+
+    // Force browser download
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${exp.title}.pdf"`
+    )
+    res.setHeader("Content-Type", "application/pdf")
+
+    response.data.pipe(res)
+
+  } catch (err) {
+    console.error("DOWNLOAD ERROR:", err)
+    res.status(500).send("Download failed")
+  }
+   
+})
+
+const downloadQpFile = asyncHandler(async(req,res)=>{
+    try {
+    console.log("Download ID:", req.params)
+    const qp = await Qp.findById(req.params.id)
+    if (!qp) return res.status(404).send("Note not found",req.params.id,qp)
+
+    const response = await axios.get(qp.fileUrl, {
+      responseType: "stream"
+    })
+    // Force browser download
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename="${qp.title}.pdf"`
+    )
+    res.setHeader("Content-Type", "application/pdf")
+
+    response.data.pipe(res)
+
+  } catch (err) {
+    console.error("DOWNLOAD ERROR:", err)
+    res.status(500).send("Download failed")
+  }
+   
+})
+
+
+
 const viewNotes = asyncHandler(async(req,res)=>{
   try {
         const notes = await Notes.find({type:"notes"}).sort({ createdAt: -1 })
@@ -104,4 +160,4 @@ const viewExp = asyncHandler(async(req,res)=>{
     res.status(500).json({ message: "Failed to fetch notes" })
   }
 })
-export {fileUpload,viewAllFiles,downloadFile,viewNotes,viewExp,viewQp}
+export {fileUpload,viewAllFiles,downloadNotesFile,downloadExpFile,downloadQpFile,viewNotes,viewExp,viewQp}

@@ -1,10 +1,9 @@
-import React from 'react'
-import Download from '../Download'
+import Expdownload from "../Download/Expdownload"
 
 const Iotexp = () => {
   return (
     <div>
-      <Download url={"/file/viewexp"} sub={'iot'} subname={'Internet of things'}/>
+      <Expdownload url={"/file/viewexp"} sub={'iot'} subname={'Internet of things'}/>
     </div>
   )
 }
