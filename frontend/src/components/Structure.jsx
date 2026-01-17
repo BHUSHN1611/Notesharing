@@ -4,7 +4,7 @@ import { API_URL } from '../config.js';
 import { Link } from 'react-router-dom';
 const Structure = ({ notes, subject }) => {
   const hasNotes = notes && notes.length > 0;
-  console(notes, subject)
+  console.log(notes, subject)
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
