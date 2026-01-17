@@ -9,10 +9,10 @@ const Notestructure = ({ notes, subject }) => {
   const NoteshandleDownload = (noteId) => {
       try {
         window.open(`${API_URL}/file/notes/download/${noteId}`);
-        showNotification();
+      
       } catch (error) {
         console.log("Error occured at download",error);
-        showNotification('error', 'Upload failed. Please try again.');
+ 
       }}
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Download, FileText, CheckCircle2, AlertCircle} from 'lucide-react';
 import { API_URL } from '../../config.js';
-import { useState } from 'react';
+
 
 const Qpstructure = ({ notes, subject }) => {
   const hasNotes = notes && notes.length > 0;
