@@ -1,6 +1,7 @@
 import React from 'react';
 import { Download, FileText, AlertCircle } from 'lucide-react';
 import { API_URL } from '../config.js';
+import { Link } from 'react-router-dom';
 const Structure = ({ notes, subject }) => {
   const hasNotes = notes && notes.length > 0;
   return (
@@ -42,13 +43,14 @@ const Structure = ({ notes, subject }) => {
               <p className="text-sm text-gray-600 mb-4">{note.subject}</p>
 
               {/* Download Button */}
-              <a
-                href={`${API_URL}/file/download/${note._id}`}
+              <button
                 className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
+                <Link to={`${API_URL}/file/download/${note._id}`}>
                 <Download size={18} />
                 Download
-              </a>
+                </Link>
+              </button>
             </div>
           ))}
         </div>

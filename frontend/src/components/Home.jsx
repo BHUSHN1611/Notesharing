@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles } from 'lucide-react';
 import axios from 'axios'
 import { API_URL } from '../config.js';
+import { useNavigate } from 'react-router';
 
 
 const Home = () => {
@@ -9,6 +10,8 @@ const Home = () => {
   const [NumbersofNotes,setNumberofnotes] = useState(0)
   const [NumbersofExp,setNumberofexp] = useState(0)
   const [NumbersofQp,setNumberofqp] = useState(0)
+
+  const navigate = useNavigate()
 
   const getNumbers = async() => {
     try {
@@ -65,20 +68,24 @@ const Home = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
-              <a
-                href="/viewallnotes"
+              <button
+                onClick={()=>{
+                  navigate("/viewallnotes")
+                }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-blue-700 transition-all transform hover:scale-105 hover:shadow-xl"
               >
                 Browse Notes
                 <ArrowRight size={20} />
-              </a>
-              <a
-                href="/upload"
+              </button>
+              <button
+                onClick={()=>{
+                  navigate("/upload")
+                }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-indigo-600 font-semibold rounded-xl border-2 border-indigo-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all transform hover:scale-105"
               >
                 <Upload size={20} />
                 Upload Notes
-              </a>
+              </button>
             </div>
           </div>
         </div>
