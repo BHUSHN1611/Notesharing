@@ -1,10 +1,21 @@
-import React from 'react';
-import { Download, FileText, AlertCircle } from 'lucide-react';
+import { Download, FileText, CheckCircle2, AlertCircle} from 'lucide-react';
 import { API_URL } from '../../config.js';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
 const Expstructure = ({ notes, subject }) => {
+
   const hasNotes = notes && notes.length > 0;
-  console.log(notes, subject)
+  console.log(notes, subject);
+
+
+  const ExphandleDownload = (noteId) => {
+    try {
+      window.open(`${API_URL}/file/exp/download/${noteId}`,"_blank");
+
+    } catch (error) {
+      console.log("Error occured at download",error);
+    }}
+    
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* Header */}
@@ -45,12 +56,12 @@ const Expstructure = ({ notes, subject }) => {
 
               {/* Download Button */}
               <button
-                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Link to={`${API_URL}/file/exp/download/${note._id}`}>
+              onClick={()=>{ExphandleDownload(note._id)}}
+                className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+                {/* <Link to={`${API_URL}/file/exp/download/${note._id}`}> */}
                 <Download size={18} />
                 Download
-                </Link>
+                {/* </Link> */}
               </button>
             </div>
           ))}
