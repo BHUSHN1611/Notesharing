@@ -175,25 +175,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* CTA Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="bg-linear-to-r from-blue-50 to-indigo-100 rounded-3xl p-8 sm:p-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Start Learning?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of students who are already benefiting from our shared resources.
-          </p>
-          <a
-            href="/login"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all transform hover:scale-105 hover:shadow-xl"
-          >
-            Get Started Now
-            <ArrowRight size={20} />
-          </a>
-        </div>
-      </div>
     </div>
   );
 };
