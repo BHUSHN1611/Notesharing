@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router';
 
 
 const Home = () => {
-  console.log(`${API_URL}/file/viewexp`)
+  // console.log(`${API_URL}/file/viewexp`)
 
   const [NumbersofNotes,setNumberofnotes] = useState(0 || localStorage.getItem(no_of_notes))
   const [NumbersofExp,setNumberofexp] = useState(0 || localStorage.getItem(no_of_exp)) 
