@@ -32,6 +32,7 @@ import Iotexp from "./components/Expcomponent/Iotexp.jsx";
 import Cssexp from "./components/Expcomponent/Cssexp.jsx";
 import Aiexp from "./components/Expcomponent/Aiexp.jsx";
 import Spccexp from "./components/Expcomponent/Spccexp.jsx";
+import Resource from "./components/Resource.jsx";
 
 // import Login from "./components/Auth/Login.jsx";
 
@@ -40,7 +41,7 @@ import Spccexp from "./components/Expcomponent/Spccexp.jsx";
 
 function App() {
   return(
-    <div className="h-full  bg-linear-to-br from-blue-50 to-indigo-100">
+    <div className="h-full">
       <BrowserRouter> 
 
       <Navbar/>
@@ -80,6 +81,8 @@ function App() {
         <Route path="/aiexp" element={<Aiexp/>}/>
         <Route path="/iotexp" element={<Iotexp/>}/>
         <Route path="/cssexp" element={<Cssexp/>}/>
+
+        <Route path="/test" element={<Resource/>}/>
         
 
       </Routes>

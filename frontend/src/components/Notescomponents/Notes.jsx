@@ -44,7 +44,7 @@ const Notes = () => {
     {
       title: "Mobile",
       subtitle: "Computing",
-      gradient: "from-red-600 to-red-800",
+      gradient: "from-amber-600 to-red-600",
       accentColor: "bg-red-400",
       textColor: "text-red-700",
       hoverColor: "hover:bg-red-50",

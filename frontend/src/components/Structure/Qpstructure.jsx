@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, FileText, CheckCircle2, AlertCircle} from 'lucide-react';
+import { Download, FileText, CheckCircle2, AlertCircle,Eye} from 'lucide-react';
 import { API_URL } from '../../config.js';
 
 
@@ -79,7 +79,7 @@ const Qpstructure = ({ notes, subject }) => {
                 className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
               >
                 {/* <Link to={`${API_URL}/file/notes/download/${note._id}`}> */}
-                <Download size={18} />
+                <Eye size={18} />
                 View
                 {/* </Link> */}
               </button>
