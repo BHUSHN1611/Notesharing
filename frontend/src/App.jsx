@@ -4,10 +4,8 @@ import Home from "./components/Home.jsx"
 
 import Uploadfile from "./components/Uploadfile.jsx";
 
-import Navbar from "./components/Navbar.jsx";
-
-
 import Notfound from "./components/Notfound.jsx";
+
 import Mcnotes from "./components/Notescomponents/Mcnotes.jsx";
 import Spccnotes from "../src/components/Notescomponents/Spccnotes.jsx"
 import Cssnotes from "../src/components/Notescomponents/Cssnotes.jsx"
@@ -21,8 +19,6 @@ import Spccqp from './components/Qpcomponents/Spccqp.jsx'
 import Iotqp from "./components/Qpcomponents/Iotqp.jsx"
 import Cssqp  from "./components/Qpcomponents/Cssqp.jsx"
 
-// import Signup from "./components/Auth/Signup.jsx";
-
 import Notes from '../src/components/Notescomponents/Notes.jsx'
 import Question from '../src/components/Qpcomponents/Question.jsx'
 import Experiement from "./components/Expcomponent/Experiement.jsx";
@@ -32,33 +28,25 @@ import Iotexp from "./components/Expcomponent/Iotexp.jsx";
 import Cssexp from "./components/Expcomponent/Cssexp.jsx";
 import Aiexp from "./components/Expcomponent/Aiexp.jsx";
 import Spccexp from "./components/Expcomponent/Spccexp.jsx";
+
 import Resource from "./components/Resource.jsx";
-
-// import Login from "./components/Auth/Login.jsx";
-
-
-
+import Register from "./components/AuthComponents/Register.jsx";
+import Login from "./components/AuthComponents/Login.jsx";
+import Mainpage from "./components/Mainpage.jsx";
 
 function App() {
   return(
     <div className="h-full">
       <BrowserRouter> 
-
-      <Navbar/>
-       
+      
       <Routes>
         <Route path="/*" element={<Notfound/>}/>
-        <Route path="/" element={<Home />} />
-
-        {/* <Route path="/signup" element={<Signup/>} /> */}
-        {/* <Route path="/login" element={<Login/>} /> */}
-
         
+        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Mainpage/>} />
 
         <Route path="/upload" element={<Uploadfile/>} />
-        {/* <Route path="/viewall" element={<Viewall/>}/> */}
-        
-        {/* <Route path="/viewallnotes" element={<Viewallnotes/>}/> */}
+
         <Route path="/viewallnotes" element={<Notes/>}/>
         <Route path="/viewallqp" element={<Question/>}/>
         <Route path="/viewallexp" element={<Experiement/>}/>
@@ -83,6 +71,13 @@ function App() {
         <Route path="/cssexp" element={<Cssexp/>}/>
 
         <Route path="/test" element={<Resource/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
+
+        <Route path="/main" element={<Mainpage/>}/>
+
+
+        
         
 
       </Routes>

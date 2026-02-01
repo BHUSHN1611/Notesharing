@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import Navbar from '../Navbar.jsx';
 
 const Experiement = () => {
     const navigate = useNavigate();
@@ -51,7 +52,10 @@ const Experiement = () => {
     }
   ];
   return (
+  <>
+    <Navbar/>
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      
       <div className="max-w-8xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
           {courses.map((course, index) => (
@@ -84,7 +88,8 @@ const Experiement = () => {
         </div>
       </div>
     </div>
-  );
+  </>
+  ); 
 }
 
 export default Experiement

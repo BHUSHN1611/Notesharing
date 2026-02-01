@@ -2,6 +2,7 @@ import Notestructure from "../Structure/Notestructure.jsx";
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { API_URL } from '../../config.js';
+import Navbar from "../Navbar.jsx";
 
 
 const Notesdownload = ({ url, sub, subname }) => {
@@ -23,6 +24,7 @@ const Notesdownload = ({ url, sub, subname }) => {
   
   return (
     <div>
+      <Navbar/>
       <Notestructure notes={files} subject={subname}/>  
     </div>
   )

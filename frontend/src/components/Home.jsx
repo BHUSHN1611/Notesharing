@@ -3,6 +3,7 @@ import { BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles } from 
 import axios from 'axios'
 import { API_URL } from '../config.js';
 import { useNavigate } from 'react-router';
+import Navbar from "../components/Navbar.jsx"
 
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
+      <Navbar/>
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Decorative background elements */}
@@ -95,65 +97,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Everything You Need to Excel
-          </h2>
-          <p className="text-gray-600 text-lg">Comprehensive resources at your fingertips</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {/* Feature Card 1 */}
-          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100">
-            <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-              <BookOpen className="text-blue-600" size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Study Notes</h3>
-            <p className="text-gray-600 text-sm">
-              Access comprehensive notes for all subjects, curated by students like you.
-            </p>
-          </div>
-
-          {/* Feature Card 2 */}
-          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100">
-            <div className="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-              <FileText className="text-purple-600" size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Experiments</h3>
-            <p className="text-gray-600 text-sm">
-              Find practical experiments and lab reports to ace your practicals.
-            </p>
-          </div>
-
-          {/* Feature Card 3 */}
-          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100">
-            <div className="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-              <Search className="text-green-600" size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Question Papers</h3>
-            <p className="text-gray-600 text-sm">
-              Practice with previous year question papers and exam patterns.
-            </p>
-          </div>
-
-          {/* Feature Card 4 */}
-          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100">
-            <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
-              <Users className="text-orange-600" size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Community</h3>
-            <p className="text-gray-600 text-sm">
-              Join a thriving community of learners sharing knowledge together.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="bg-linear-to-r from-indigo-600 to-purple-600 py-12 sm:py-16">
+       {/* Stats Section */}
+      <div className="bg-indigo-600  py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="text-center">

@@ -1,6 +1,6 @@
 import { Download, FileText, CheckCircle2, AlertCircle,Eye} from 'lucide-react';
 import { API_URL } from '../../config.js';
-// import { Link } from 'react-router-dom';
+
 
 const Expstructure = ({ notes, subject }) => {
 

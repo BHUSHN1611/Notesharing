@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X ,User} from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
@@ -12,9 +12,8 @@ export default function Navbar() {
   const Qpnavigate = () => {navigate("/viewallqp")};
   const Uploadnavigate = () => {navigate("/upload")};
 
-
   return (
-    <nav className="bg-linear-to-r from-indigo-600 to-blue-600  shadow-md rounded-b-lg">
+    <nav className="bg-blue-600  shadow-md rounded-b-lg">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           
@@ -46,9 +45,10 @@ export default function Navbar() {
             <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
             </button>
-            <a href="/login" className="bg-linear-to-r from-amber-600 to-orange-600 text-white py-2 px-4 rounded-md hover:from-indigo-700 hover:to-blue-700 transition-all transform hover:scale-105 hover:shadow-xl">
-              Sign-up
-            </a>
+            <button>
+              <User Size={35}/>
+            </button>
+            
           </div>
         </div>
 

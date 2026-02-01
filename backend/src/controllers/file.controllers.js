@@ -1,9 +1,12 @@
-import {asyncHandler} from "../utils/async-handler.js"
+//utils
+import {asyncHandler} from '../utils/async-handler.js'
 import {ApiError} from "../utils/api.errors.js"
-import {Notes} from "../models/notes.model.js"
-import {uploadCloundinary} from "../utils/cloundinary.js"
 import { ApiResponse } from "../utils/api.response.js"
+import {uploadCloundinary} from "../utils/cloundinary.js"
+
 import axios from "axios";
+//models
+import {Notes} from "../models/notes.model.js"
 import { Qp } from "../models/qp.model.js"
 import { Exp } from "../models/exp.model.js"
 

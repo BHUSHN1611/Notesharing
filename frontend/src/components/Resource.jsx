@@ -3,10 +3,38 @@ import React, { useState } from 'react'
 const Resource = () => {
     const [isClick,setIsclick] = useState(false);
     const getYoutubeUrl = () => {
+        const link = document.getElementById('noteReference').value.trim();
 
+  // Remove spaces from pasted link
+   const cleanedLink = link.replace(/\s+/g, "");
+  // Reset preview
+  // preview.innerHTML = "";
+  try {
+    const url = new URL(cleanedLink);
+    let videoId = null;
+
+    // Case 1: https://youtu.be/VIDEO_ID
+    if (url.hostname === "youtu.be") {
+      videoId = url.pathname.slice(1);
     }
+
+    // Case 2: https://www.youtube.com/watch?v=VIDEO_ID
+    if (url.hostname.includes("youtube.com")) {
+      videoId = url.searchParams.get("v");
+    }
+
+    if (!videoId) throw new Error("Invalid YouTube link");
+
+    // Fallback thumbnail logic
+  
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+    return thumbnailUrl;
+  } catch (err) {
+    return "https://placehold.co/600x400/EEE/31343C?font=poppins&text=Thumbnail"
+
+    }}
   return (
-    <div className="w-full h-full p-2 ">
+    <div className="w-full h-full p-2 static">
         <div className='h-150 flex justify-center items-center'>
             <button 
             onClick={()=>setIsclick(true)}
@@ -16,8 +44,8 @@ const Resource = () => {
         {isClick && (
             <div>
                 <div className=''>
-                    <form onSubmit={getYoutubeUrl}>
-                        <div className="w-full h-45 max-w-xs p-4 bg-white rounded-lg  flex flex-col justify-between">
+                    <form onSubmit={getYoutubeUrl} className='absolute bottom-80 left-180 w-100'>
+                        <div className="w-full h-45 max-w-xs p-4 bg-white rounded-lg  flex flex-col justify-between border-2">
                         <label className="block text-gray-700 text-sm font-bold mb-2"
                             >Title</label>
                         <input

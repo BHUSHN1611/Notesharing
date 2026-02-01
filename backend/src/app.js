@@ -21,10 +21,13 @@ app.get('/',(req,res)=>{
 
 import healthCheckRouter from './routes/healthcheck.route.js';
 import  fileRouter from './routes/file.route.js';
+import userRouter from './routes/user.route.js'
 
-app.use('/health',healthCheckRouter)
-app.use("/file",fileRouter)
+app.use("/health",healthCheckRouter);
 
-// "/file/upload" 
+app.use("/file",fileRouter);
+
+app.use("/user",userRouter);
+
 export default app;
 

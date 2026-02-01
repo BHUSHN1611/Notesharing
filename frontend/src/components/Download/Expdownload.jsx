@@ -2,6 +2,7 @@ import Expstructure from "../Structure/Expstructure.jsx";
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { API_URL } from '../../config.js';
+import Navbar from '../Navbar.jsx'
 
 
 const Expdownload = ({ url, sub, subname }) => {
@@ -22,7 +23,9 @@ const Expdownload = ({ url, sub, subname }) => {
   }, [])  
   
   return (
+
     <div>
+      <Navbar/>
       <Expstructure  notes={files} subject={subname}/>  
     </div>
   )

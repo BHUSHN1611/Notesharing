@@ -2,6 +2,7 @@ import Qpstructure from "../Structure/Qpstructure.jsx";
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { API_URL } from '../../config.js';
+import Navbar from "../Navbar.jsx";
 
 
 const Qpdownload = ({ url, sub, subname }) => {
@@ -23,6 +24,7 @@ const Qpdownload = ({ url, sub, subname }) => {
   
   return (
     <div>
+      <Navbar/>
       <Qpstructure notes={files} subject={subname}/>  
     </div>
   )

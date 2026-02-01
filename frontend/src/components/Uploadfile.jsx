@@ -3,6 +3,7 @@ import { Upload, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import axios from 'axios';
 import { API_URL } from '../config.js';
 import { useNavigate } from 'react-router';
+import Navbar from './Navbar.jsx';
 
 const Uploadfile = () => {
   const navigate = useNavigate();
@@ -57,6 +58,9 @@ const Uploadfile = () => {
   };
 
   return (
+    <>
+    <Navbar/>
+    
     <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-8 px-4 sm:px-6 lg:px-8">
       {/* Toast Notification */}
       {notification && (
@@ -204,6 +208,7 @@ const Uploadfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
