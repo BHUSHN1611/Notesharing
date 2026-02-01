@@ -41,18 +41,35 @@ const Mainpage = () => {
   return (
     <div>
         <nav className="rounded-b-lg mb-4">
-        <div className="max-w-7xl mx-auto px-2 py-4">
+        <div className="max-w-7xl mx-auto px-1 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div>
-            <a href="/" className=" sm:text-xl md:text-xl lg:text-3xl font-bold text-black bg-yellow-300 p-1 rounded-md">
+            <a href="/" className="text-md p-1 sm:text-lg md:text-xl lg:text-3xl font-bold text-black bg-yellow-300 lg:p-1 rounded-md">
             Notes Sher Kar Bhai 
           </a>
           </div>
-          
-          <div className='space-x-3'>
-            <a href="/login" className="lg:text-xl text-black border-2 border-gray-300 py-2 px-4 rounded-md hover:text-gray-900 transition-all transform hover:scale-105 hover:shadow-xl">Login</a>
-           <a href="/register" className="lg:text-xl bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-500 transition-all transform hover:scale-105 hover:shadow-xl">Sign-up</a>
+
+          <div className='space-x-1 lg:space-x-3'>
+            <a href="/login" className="
+            text-sm px-2 py-1 
+            sm:text-lg 
+
+
+            md:text-xl md:py-2 md:px-4
+            lg:text-xl lg:py-2 lg:px-4
+             text-black border-2 border-gray-300   rounded-md hover:text-gray-900 transition-all transform hover:scale-105 hover:shadow-xl
+              ">Login</a>
+           <a href="/register" className="
+           text-sm px-2 py-1 
+           sm:text-lg 
+
+           md:text-xl md:py-2 md:px-4 
+           lg:text-xl lg:py-2 lg:px-4 
+            bg-blue-600 text-white 
+           rounded-md 
+           hover:bg-blue-500 
+           transition-all transform hover:scale-105 hover:shadow-xl">Sign-up</a>
           </div>
           
         </div>
