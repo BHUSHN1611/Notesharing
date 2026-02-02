@@ -171,6 +171,10 @@ const Login = () => {
             </p>
           </div>
         </div>
+        {/* Notification */}
+        <div className="text-center mt-8 bg-red-500 rounded-2xl p-2">
+          <p className="text-white">Make sure you allow all third‑party cookies for this site to store accessToken and refreshToken.</p>
+        </div>
       </div>
     </div>
   );
