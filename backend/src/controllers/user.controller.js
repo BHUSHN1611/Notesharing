@@ -57,6 +57,7 @@ const registerUser = asyncHandler(async (req,res)=>{
 
 })
 const loginUser = asyncHandler(async(req,res)=>{
+
     // req body -> data 
     // username or email
     // find the user
@@ -86,8 +87,8 @@ const loginUser = asyncHandler(async(req,res)=>{
      
      const options = {
         httpOnly : true,
-        secure: false,
-        sameSite: "lax",    
+        secure: true,
+        sameSite: "none",    
         maxAge: 7 * 24 * 60 * 60 * 1000 
      }
      return res
