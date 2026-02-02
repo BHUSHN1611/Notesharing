@@ -20,10 +20,6 @@ const Uploadfile = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  const handleReload = () => {
-    setTimeout(window.location.reload(), 2000);
-  };
-
   console.log(file,fileType,subject)
 
   const uploadFile = async (e) => {
@@ -40,7 +36,7 @@ const Uploadfile = () => {
     console.log(formData)
 
     try {
-      await axios.post(`${API_URL}/file/upload`, formData);
+      await axios.post(`${API_URL}/file/upload`, formData ,{withCredentials: true});
       showNotification('success', 'File uploaded successfully!');
 
       Uploadnavigate();

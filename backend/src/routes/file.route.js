@@ -1,13 +1,14 @@
 import { Router } from "express";
 import {fileUpload,viewAllFiles,downloadNotesFile,downloadQpFile,downloadExpFile,viewNotes,viewExp, viewQp,viewNotesFile,viewQpFile,viewExpFile} from "../controllers/file.controllers.js"
 import multer from 'multer'
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 
 const router = Router();
 
 const upload = multer({ dest: "temp/", limits: { fileSize: 100 * 1024 * 1024 },}) //50mb
 // "/file/{}"
-router.route("/upload").post(upload.single("pdf"),fileUpload);
+router.route("/upload").post(verifyJWT,upload.single("pdf"),fileUpload);
 // /file/notes/download/:id
 router.route("/notes/download/:id").get(downloadNotesFile)
 router.route("/exp/download/:id").get(downloadExpFile)

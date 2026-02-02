@@ -41,55 +41,45 @@ const Mainpage = () => {
   return (
     <div>
         <nav className="rounded-b-lg mb-4">
-        <div className="max-w-7xl mx-auto px-1 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div>
-            <a href="/" className="text-md p-1 sm:text-lg md:text-xl lg:text-3xl font-bold text-black bg-yellow-300 lg:p-1 rounded-md">
-            Notes Sher Kar Bhai 
-          </a>
+          <div className="max-w-7xl mx-auto px-1 py-4">
+              <div className="flex items-center justify-between">
+                  {/* Logo */}
+                    <div>
+                      <a href="/" className="text-md p-1 sm:text-lg md:text-xl lg:text-3xl font-bold text-black bg-yellow-300 lg:p-1 rounded-md">
+                      Notes Sher Kar Bhai 
+                    </a>
+                    </div>
+
+                    <div className='space-x-1 lg:space-x-3'>
+                      <a href="/login" className="
+                      text-md px-2 py-1 
+                      sm:text-lg 
+                      md:text-xl md:py-2 md:px-4
+                      lg:text-xl lg:py-2 lg:px-4
+                      text-black border-2 border-gray-300   rounded-md hover:text-gray-900 transition-all transform hover:scale-105 hover:shadow-xl">Login</a>
+                    <a href="/register" className="
+                    text-md px-2 py-1 
+                    sm:text-lg 
+                    md:text-xl md:py-2 md:px-4 
+                    lg:text-xl lg:py-2 lg:px-4 
+                      bg-blue-600 text-white 
+                    rounded-md 
+                    hover:bg-blue-500 
+                    transition-all transform hover:scale-105 hover:shadow-xl">Sign-up</a>
+                    </div>
+                
+              </div>
           </div>
 
-          <div className='space-x-1 lg:space-x-3'>
-            <a href="/login" className="
-            text-sm px-2 py-1 
-            sm:text-lg 
-
-
-            md:text-xl md:py-2 md:px-4
-            lg:text-xl lg:py-2 lg:px-4
-             text-black border-2 border-gray-300   rounded-md hover:text-gray-900 transition-all transform hover:scale-105 hover:shadow-xl
-              ">Login</a>
-           <a href="/register" className="
-           text-sm px-2 py-1 
-           sm:text-lg 
-
-           md:text-xl md:py-2 md:px-4 
-           lg:text-xl lg:py-2 lg:px-4 
-            bg-blue-600 text-white 
-           rounded-md 
-           hover:bg-blue-500 
-           transition-all transform hover:scale-105 hover:shadow-xl">Sign-up</a>
-          </div>
-          
-        </div>
-        {/* Mobile Nav Links */}
-        {isOpen && (
-          <div className="lg:hidden mt-4 pb-2 flex flex-col gap-3 text-white text-lg">
-            <a href="/login" className="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition inline-block text-center mt-2">
-              Sign-up
-            </a>
-          </div>
-        )}
-      </div>
         </nav>
         {/* /*Image section */}
        <div className='flex justify-center items-center'>
-            <img className="w-full max-w-7xl h-auto object-cover rounded-lg px-4" src="/context.png" alt="contextpng"/>
-        </div>
+            <img className="w-full max-w-7xl h-auto object-cover rounded-lg px-4" 
+            src="/context.png" alt="contextpng"/>
+       </div>
     {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 ">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-4 tracking-tighter">
             Everything You Need to Excel
           </h2>

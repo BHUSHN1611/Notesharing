@@ -33,6 +33,7 @@ import Resource from "./components/Resource.jsx";
 import Register from "./components/AuthComponents/Register.jsx";
 import Login from "./components/AuthComponents/Login.jsx";
 import Mainpage from "./components/Mainpage.jsx";
+import Userinfo from "./components/AuthComponents/Userinfo.jsx";
 
 function App() {
   return(
@@ -75,6 +76,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
 
         <Route path="/main" element={<Mainpage/>}/>
+        <Route path="/userprofile" element={<Userinfo/>}/>
 
 
         

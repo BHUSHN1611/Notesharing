@@ -7,8 +7,8 @@ import jwt from "jsonwebtoken";
 const generateAccessAndRefereshTokens = async(userId) =>{
     try {
         const user = await User.findById(userId)
-        const accessToken = user.generateRefreshToken()
-        const refreshToken = user.generateAccessToken()
+        const accessToken = user.generateAccessToken()
+        const refreshToken = user.generateRefreshToken()
 
         user.refreshToken = refreshToken
         await user.save({validateBeforeSave:false}) // no validation
@@ -86,11 +86,10 @@ const loginUser = asyncHandler(async(req,res)=>{
      
      const options = {
         httpOnly : true,
-        secure: true,
-        sameSite: "none",    
+        secure: false,
+        sameSite: "lax",    
         maxAge: 7 * 24 * 60 * 60 * 1000 
      }
-
      return res
      .status(200)
      .cookie("accessToken",accessToken,options)
@@ -106,7 +105,6 @@ const loginUser = asyncHandler(async(req,res)=>{
         )
      )
 
-     
 })
 const logoutUser = asyncHandler(async(req,res)=>{
     await User.findByIdAndUpdate(
@@ -116,7 +114,7 @@ const logoutUser = asyncHandler(async(req,res)=>{
             }
         },
         {
-            new:True
+            new:true
         }
     )
     const options = {
@@ -127,6 +125,7 @@ const logoutUser = asyncHandler(async(req,res)=>{
      .clearCookie("accessToken",options)
      .clearCookie("refereshToken",options)
      .json(new ApiResponse(200,{},"User Logout"))
+
 })
 const refreshAccessToken = asyncHandler(async(req,res)=>{
     const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
@@ -178,8 +177,14 @@ const refreshAccessToken = asyncHandler(async(req,res)=>{
     
 
 })
+const getUserDetails = asyncHandler(async(req,res)=>{
+    res.json({
+    username: req.user.username
+  });
+})
 
 export{
     registerUser,
-    loginUser
+    loginUser,
+    getUserDetails
 }

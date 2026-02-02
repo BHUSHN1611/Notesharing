@@ -1,10 +1,28 @@
 import { Menu, X ,User} from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
+import { API_URL } from '../config.js';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [username,setUsername] = useState("")
   const navigate = useNavigate();
+
+  const getUsername = async() => {
+    try {
+      const response = await axios.get(`${API_URL}/user/profile`,{withCredentials:true});
+      const username = response.data.username;
+      setUsername(username.toUpperCase())
+      
+    } catch (error) {
+      console.log(error,"Error while getting the user")
+      
+    }
+  }
+  useEffect(()=>{
+      getUsername()
+    },[])
 
  //all navigation route 
   const Notesnavigate = () => {navigate("/viewallnotes")};
@@ -45,16 +63,22 @@ export default function Navbar() {
             <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
             </button>
-            <button>
-              <User Size={35}/>
-            </button>
-            
+            <div className='flex justify-center items-center bg-red-500 px-3 py-2 rounded-lg'>
+              <User size={28}/>         
+              <a href="/userprofile" 
+              className="ml-3">{username}</a>
+            </div>
           </div>
         </div>
 
         {/* Mobile Nav Links */}
         {isOpen && (
           <div className="lg:hidden mt-4 pb-2 flex flex-col gap-3 text-white text-lg">
+            <a href="/userprofile"
+            className='flex justify-center bg-red-500 px-1 py-2 rounded-md'>
+              <User size={25}/>
+              <div className='ml-2'>{username}</div>
+            </a>
             <button onClick={Notesnavigate} className="hover:text-blue-200 transition">
               NOTES
             </button>
@@ -67,9 +91,6 @@ export default function Navbar() {
             <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
             </button>
-            <a href="/login" className="bg-orange-600 text-white py-2 px-4 rounded-md hover:bg-orange-700 transition inline-block text-center mt-2">
-              Sign-up
-            </a>
           </div>
         )}
       </div>

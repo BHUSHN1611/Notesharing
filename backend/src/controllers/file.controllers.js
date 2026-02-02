@@ -54,6 +54,7 @@ const viewAllFiles = asyncHandler(async(req,res)=>{
 }
 
 })
+
 // download function
 const downloadNotesFile = asyncHandler(async(req,res)=>{
     try {
@@ -80,7 +81,6 @@ const downloadNotesFile = asyncHandler(async(req,res)=>{
   }
    
 })
-
 const downloadExpFile = asyncHandler(async(req,res)=>{
     try {
     console.log("Download ID:", req.params)
@@ -106,7 +106,6 @@ const downloadExpFile = asyncHandler(async(req,res)=>{
   }
    
 })
-
 const downloadQpFile = asyncHandler(async(req,res)=>{
     try {
     console.log("Download ID:", req.params)
@@ -132,6 +131,7 @@ const downloadQpFile = asyncHandler(async(req,res)=>{
    
 })
 
+// live view function
 const viewNotesFile = asyncHandler(async(req,res)=>{
     try {
     console.log("View ID:", req.params)
@@ -238,4 +238,5 @@ const viewExp = asyncHandler(async(req,res)=>{
     res.status(500).json({ message: "Failed to fetch notes" })
   }
 })
+
 export {fileUpload,viewAllFiles,downloadNotesFile,downloadExpFile,downloadQpFile,viewNotes,viewExp,viewQp,viewNotesFile,viewQpFile,viewExpFile}
