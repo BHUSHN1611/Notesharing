@@ -10,13 +10,15 @@ const userSchema = new Schema({
             trim:true,
             index:true
         },
-        email:{
-            type:String,
-            required:true,
-            unique:true,
-            lowercase:true,
-            trim:true,
-        },
+        email: {
+            type: String,
+            required: [true, "Please enter Email"],
+            unique: true,
+            lowercase: true,
+            trim: true,
+            match: [/^[a-zA-Z0-9._%+-]+@gmail\.com$/,
+                "Only gmail.com email addresses are allowed"]
+            },
         password:{
             type:String,
             required:[true,"Password is required"],  

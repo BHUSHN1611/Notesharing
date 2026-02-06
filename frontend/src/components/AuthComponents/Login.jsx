@@ -18,7 +18,7 @@ const Login = () => {
   const LoginUser = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    console.log(email, password);
+  
 
     try {
       // Simulating API call - replace with your actual API call
@@ -34,9 +34,7 @@ const Login = () => {
 
       if (res){
         navigate('/home')
-
       }
-      // console.log(res.data);
       
       // Clear form
       setTimeout(() => {
@@ -78,7 +76,7 @@ const Login = () => {
                 </div>
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your gmail"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"

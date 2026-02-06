@@ -14,6 +14,10 @@ const expSchema = new Schema({
       type: String,
       required: true
     },
+    public_id:{
+      type:String,
+      required:true
+    },
     type: {
       type: String,
       required: true,

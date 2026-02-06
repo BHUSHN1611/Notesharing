@@ -7,7 +7,7 @@ import Navbar from './Navbar.jsx';
 
 const Uploadfile = () => {
   const navigate = useNavigate();
-  const Uploadnavigate = () => {navigate("/upload");console.log("Navigated")};
+  const Uploadnavigate = () => {navigate("/upload")}
 
   const [file, setFile] = useState(null);
   const [fileType, setFileType] = useState('Notes');
@@ -20,7 +20,7 @@ const Uploadfile = () => {
     setTimeout(() => setNotification(null), 3000);
   };
 
-  console.log(file,fileType,subject)
+  // console.log(file,fileType,subject)
 
   const uploadFile = async (e) => {
     e.preventDefault();

@@ -11,7 +11,7 @@ const Notesdownload = ({ url, sub, subname }) => {
   const fetchFiledata = async() => {
     try {
       const res = await axios.get(`${API_URL}${url}`)  
-      const filedata = res.data.filter(item => item.subject === sub)  
+      const filedata = res.data.filter(item => item.subject === sub) 
       setFiles(filedata)
     } catch (err) {
       console.error("Error fetching notes", err)
