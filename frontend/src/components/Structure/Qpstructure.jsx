@@ -30,8 +30,6 @@ const Qpstructure = ({ notes, subject }) => {
     }}
 
     const QphandleDelete = async (id) => {
-    const ok = window.confirm("Are you sure you want to delete this note?");
-    if (!ok) return;
     try {
       await axios.delete(`${API_URL}/file/qp/delete/${id}`, {
         withCredentials: true

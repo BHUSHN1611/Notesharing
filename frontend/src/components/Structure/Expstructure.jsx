@@ -29,8 +29,6 @@ const Expstructure = ({ notes, subject }) => {
     }}
 
   const ExphandleDelete = async (id) => {
-    const ok = window.confirm("Are you sure you want to delete this note?");
-    if (!ok) return;
     try {
       await axios.delete(`${API_URL}/file/exp/delete/${id}`, {
         withCredentials: true

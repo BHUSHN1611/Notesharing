@@ -27,8 +27,6 @@ const [selectedId, setSelectedId] = useState(null);
         console.log("Error occured at viewing",error);
   }}
   const NoteshandleDelete = async (id) => {
-    const ok = window.confirm("Are you sure you want to delete this note?");
-    if (!ok) return;
     try {
       await axios.delete(`${API_URL}/file/notes/delete/${id}`, {
         withCredentials: true
