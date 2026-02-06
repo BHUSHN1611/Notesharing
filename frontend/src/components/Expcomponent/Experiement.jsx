@@ -49,6 +49,15 @@ const Experiement = () => {
       textColor: "text-red-700",
       hoverColor: "hover:bg-red-50",
       route:"/mcexp"
+    },
+    {
+      title: "Cloud",
+      subtitle: "Computing",
+      gradient: "from-blue-400 to-indigo-700",
+      accentColor: "bg-blue-400",
+      textColor: "text-indigo-700",
+      hoverColor: "hover:bg-red-50",
+      route:"/ccexp"
     }
   ];
   return (

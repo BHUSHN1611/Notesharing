@@ -46,7 +46,7 @@ const Qpstructure = ({ notes, subject }) => {
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">{subject}</h2>
         <p className="text-gray-600">
-          {hasNotes ? `${notes.length} ${notes.length === 1 ? 'note' : 'notes'} available` : 'No notes yet'}
+          {hasNotes ? `${notes.length} ${notes.length === 1 ? 'Questionpaper' : 'Questionpapers'} available` : 'No Questionpapers yet'}
         </p>
       </div>
 

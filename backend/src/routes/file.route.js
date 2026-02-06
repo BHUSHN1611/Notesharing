@@ -24,9 +24,9 @@ router.route("/qp/delete/:id").delete(deleteQpFile)
 
 router.route("/viewall").get(viewAllFiles)
 
-router.route("/viewnotes").get(viewNotes)
-router.route("/viewqp").get(viewQp)
-router.route("/viewexp").get(viewExp)
+router.route("/viewnotes").get(verifyJWT,viewNotes)
+router.route("/viewqp").get(verifyJWT,viewQp)
+router.route("/viewexp").get(verifyJWT,viewExp)
 
 
 

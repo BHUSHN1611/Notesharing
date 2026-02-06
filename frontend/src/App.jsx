@@ -18,6 +18,7 @@ import Aiqp from "./components/Qpcomponents/Aiqp.jsx"
 import Spccqp from './components/Qpcomponents/Spccqp.jsx'
 import Iotqp from "./components/Qpcomponents/Iotqp.jsx"
 import Cssqp  from "./components/Qpcomponents/Cssqp.jsx"
+import Ccexp from "./components/Expcomponent/Ccexp.jsx";
 
 import Notes from '../src/components/Notescomponents/Notes.jsx'
 import Question from '../src/components/Qpcomponents/Question.jsx'
@@ -70,6 +71,7 @@ function App() {
         <Route path="/aiexp" element={<Aiexp/>}/>
         <Route path="/iotexp" element={<Iotexp/>}/>
         <Route path="/cssexp" element={<Cssexp/>}/>
+        <Route path="/ccexp" element={<Ccexp/>}/>
 
         <Route path="/test" element={<Resource/>}/>
         <Route path="/register" element={<Register/>}/>
