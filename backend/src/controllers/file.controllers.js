@@ -165,6 +165,19 @@ const deleteFile = (model) => asyncHandler(async (req, res) => {
 const deleteNotesFile = deleteFile(Notes);
 const deleteExpFile = deleteFile(Exp);
 const deleteQpFile = deleteFile(Qp);
+// calculate the length of document 
+const lengthDB = (model) => asyncHandler(async (req, res) => {
+  const numberOfDocuments = await model.countDocuments();
+  if (numberOfDocuments === undefined || numberOfDocuments === null) {
+    throw new ApiError(400, "Error occurred while counting documents");
+  }
+  res.json({ count: numberOfDocuments });
+
+});
+const NoteLengthDB = lengthDB(Notes);
+const ExpLengthDB = lengthDB(Exp);
+const QpLengthDB = lengthDB(Qp);
+const UserLengthDB = lengthDB(User);
 
 const viewAllFiles = asyncHandler(async(req,res)=>{
     try {
@@ -178,7 +191,9 @@ const viewAllFiles = asyncHandler(async(req,res)=>{
 export {fileUpload,viewAllFiles,
   downloadNotesFile,downloadExpFile,downloadQpFile,
   deleteNotesFile,deleteExpFile,deleteQpFile,
-  viewNotes,viewExp,viewQp,viewNotesFile,viewQpFile,viewExpFile}
+  viewNotes,viewExp,viewQp,
+  viewNotesFile,viewQpFile,viewExpFile,
+  NoteLengthDB,ExpLengthDB,QpLengthDB,UserLengthDB}
 // 
 //  const downloadNotesFile = asyncHandler(async(req,res)=>{
 //     try {

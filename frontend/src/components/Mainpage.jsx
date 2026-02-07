@@ -19,18 +19,20 @@ const Mainpage = () => {
   const [NumbersofNotes,setNumberofnotes] = useState(0)
   const [NumbersofExp,setNumberofexp] = useState(0) 
   const [NumbersofQp,setNumberofqp] = useState(0)
+  const [NumbersofUser,setNumberofuser] = useState(0)
 
   const getNumbers = async() => {
     try {
-     const notesres = await axios.get(`${API_URL}/file/viewnotes`);
-     const NumbersofNotes = notesres.data.length;
-     setNumberofnotes(Number(NumbersofNotes))
-     const expres = await axios.get(`${API_URL}/file/viewexp`)
-     const NumbersofExp = expres.data.length;
-     setNumberofexp(Number(NumbersofExp))
-     const qpres = await axios.get(`${API_URL}/file/viewqp`)
-     const NumbersofQp = qpres.data.length;
-     setNumberofqp(Number(NumbersofQp))
+     const NumbersofNotes = await axios.get(`${API_URL}/file/notes/count`);
+     setNumberofnotes(NumbersofNotes.data.count)
+     const NumbersofExp = await axios.get(`${API_URL}/file/exp/count`);
+     setNumberofexp(NumbersofExp.data.count)
+     const NumbersofQp = await axios.get(`${API_URL}/file/qp/count`);
+     setNumberofqp(NumbersofQp.data.count);
+     const NumberofUser = await axios.get(`${API_URL}/file/user/count`);
+     setNumberofuser(NumberofUser.data.count);
+
+
     } catch (error) {
       console.error("Home API error:", error.response?.data || error.message)
     }
@@ -150,7 +152,7 @@ const Mainpage = () => {
               <div className="text-blue-600 text-sm sm:text-base">Question Papers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">4</div>
+              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{NumbersofUser}</div>
               <div className="text-blue-600 text-sm sm:text-base">Active Users</div>
             </div>
           </div>
