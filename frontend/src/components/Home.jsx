@@ -1,44 +1,11 @@
-import React, { useEffect, useState } from 'react';
 import { BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles } from 'lucide-react';
-import axios from 'axios'
-import { API_URL } from '../config.js';
 import { useNavigate } from 'react-router';
 import Navbar from "../components/Navbar.jsx"
+import Footer from './Footer.jsx';
 
 
 const Home = () => {
-  // console.log(`${API_URL}/file/viewexp`)
-
-  const [NumbersofNotes,setNumberofnotes] = useState(0 || localStorage.getItem(no_of_notes))
-  const [NumbersofExp,setNumberofexp] = useState(0 || localStorage.getItem(no_of_exp)) 
-  const [NumbersofQp,setNumberofqp] = useState(0|| localStorage.getItem(no_of_qp))
-
-  var no_of_notes = localStorage.setItem('NumbersofNotes',NumbersofNotes)
-  var no_of_exp = localStorage.setItem('NumbersofExp',NumbersofExp)
-  var no_of_qp = localStorage.setItem('NumbersofQp',NumbersofQp)
-
   const navigate = useNavigate()
-
-  const getNumbers = async() => {
-    try {
-     const notesres = await axios.get(`${API_URL}/file/viewnotes`);
-     const NumbersofNotes = notesres.data.length;
-     setNumberofnotes(Number(NumbersofNotes))
-     const expres = await axios.get(`${API_URL}/file/viewexp`)
-     const NumbersofExp = expres.data.length;
-     setNumberofexp(Number(NumbersofExp))
-     const qpres = await axios.get(`${API_URL}/file/viewqp`)
-     const NumbersofQp = qpres.data.length;
-     setNumberofqp(Number(NumbersofQp))
-    } catch (error) {
-      console.error("Home API error:", error.response?.data || error.message)
-    }
-
-  } 
-  useEffect(()=>{
-    getNumbers()
-  },[])
-
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
@@ -98,28 +65,8 @@ const Home = () => {
         </div>
       </div>
        {/* Stats Section */}
-      <div className="bg-indigo-600  py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{NumbersofNotes}</div>
-              <div className="text-indigo-100 text-sm sm:text-base">Notes Shared</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{NumbersofExp}</div>
-              <div className="text-indigo-100 text-sm sm:text-base">Experiments</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{NumbersofQp}</div>
-              <div className="text-indigo-100 text-sm sm:text-base">Question Papers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">4</div>
-              <div className="text-indigo-100 text-sm sm:text-base">Active Users</div>
-            </div>
-          </div>
-        </div>
-      </div>
+       <Footer bgcolor={'blue-600'} color={'white'}/>
+      
     </div>
   );
 };

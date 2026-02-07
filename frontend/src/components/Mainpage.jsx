@@ -1,45 +1,10 @@
 import React from 'react';
 import { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router';
 import { Menu, X ,BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles  } from 'lucide-react';
-import axios from 'axios';
-import { API_URL } from '../config';
+import Footer from './Footer';
 
 
 const Mainpage = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-
- //all navigation route 
-  const Notesnavigate = () => {navigate("/viewallnotes")};
-  const Expnavigate = () => {navigate("/viewallexp")};
-  const Qpnavigate = () => {navigate("/viewallqp")};
-  const Uploadnavigate = () => {navigate("/upload")};
-
-  const [NumbersofNotes,setNumberofnotes] = useState(0)
-  const [NumbersofExp,setNumberofexp] = useState(0) 
-  const [NumbersofQp,setNumberofqp] = useState(0)
-  const [NumbersofUser,setNumberofuser] = useState(0)
-
-  const getNumbers = async() => {
-    try {
-     const NumbersofNotes = await axios.get(`${API_URL}/file/notes/count`);
-     setNumberofnotes(NumbersofNotes.data.count)
-     const NumbersofExp = await axios.get(`${API_URL}/file/exp/count`);
-     setNumberofexp(NumbersofExp.data.count)
-     const NumbersofQp = await axios.get(`${API_URL}/file/qp/count`);
-     setNumberofqp(NumbersofQp.data.count);
-     const NumberofUser = await axios.get(`${API_URL}/file/user/count`);
-     setNumberofuser(NumberofUser.data.count);
-
-
-    } catch (error) {
-      console.error("Home API error:", error.response?.data || error.message)
-    }
-  } 
-  useEffect(()=>{
-    getNumbers()
-  },[])
   return (
     <div>
         <nav className="rounded-b-lg mb-4">
@@ -136,28 +101,8 @@ const Mainpage = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{NumbersofNotes}</div>
-              <div className="text-blue-600 text-sm sm:text-base">Notes Shared</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{NumbersofExp}</div>
-              <div className="text-blue-600 text-sm sm:text-base">Experiments</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{NumbersofQp}</div>
-              <div className="text-blue-600 text-sm sm:text-base">Question Papers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-blue-600 mb-2">{NumbersofUser}</div>
-              <div className="text-blue-600 text-sm sm:text-base">Active Users</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer bgcolor={'yellow-300'} color={'blue-600'}/>
+      
     </div>
   )
 }
