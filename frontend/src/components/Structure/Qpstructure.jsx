@@ -7,6 +7,12 @@ import { useState } from 'react';
 const Qpstructure = ({ notes, subject }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (type, message) => {
+  setNotification({ type, message });
+  setTimeout(() => setNotification(null), 3000);
+  };
 
   const hasNotes = notes && notes.length > 0;
   // console.log(notes, subject);
@@ -31,12 +37,18 @@ const Qpstructure = ({ notes, subject }) => {
 
     const QphandleDelete = async (id) => {
     try {
-      await axios.delete(`${API_URL}/file/qp/delete/${id}`, {
+      const res = await axios.delete(`${API_URL}/file/qp/delete/${id}`, {
         withCredentials: true
-      })
-      setNotes(prev => prev.filter(note => note._id !== id));
+      });
+      if(!res){
+        showNotification("error","Unauthorized access")
+      }
+      showNotification('success',"file delete successfully")
+
     } catch (err) {
-      alert("Delete failed")
+      console.log("error occured while deleting",err);
+      showNotification("error","error occured while deleting")
+     
     }
 }
 
@@ -109,7 +121,7 @@ const Qpstructure = ({ notes, subject }) => {
           ))}
         </div>
       )}
-            {showDeleteModal && (
+      {showDeleteModal && (
   <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
     <div className="bg-white rounded-lg p-6 w-[90%] max-w-md">
       <h2 className="text-lg font-semibold">
@@ -138,8 +150,20 @@ const Qpstructure = ({ notes, subject }) => {
         </button>
       </div>
     </div>
-  </div>
-)}
+  </div>)}
+
+  {notification && (
+              <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg animate-slide-in ${
+                notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'
+              } text-white`}>
+                {notification.type === 'success' ? (
+                  <CheckCircle2 size={20} />
+                ) : (
+                  <AlertCircle size={20} />
+                )}
+                <span className="font-medium">{notification.message}</span>
+              </div>
+            )}
     </div>
   );
 };

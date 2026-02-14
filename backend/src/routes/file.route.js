@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {fileUpload,viewAllFiles,downloadNotesFile,downloadQpFile,downloadExpFile,viewNotes,viewExp, viewQp,viewNotesFile,viewQpFile,viewExpFile,deleteNotesFile,deleteExpFile,deleteQpFile,NoteLengthDB,ExpLengthDB,QpLengthDB,UserLengthDB,} from "../controllers/file.controllers.js"
+import {fileUpload,viewAllFiles,downloadNotesFile,downloadQpFile,downloadExpFile,viewNotes,viewExp, viewQp,viewNotesFile,viewQpFile,viewExpFile,deleteNotesFile,deleteExpFile,deleteQpFile,NoteLengthDB,ExpLengthDB,QpLengthDB,UserLengthDB,totalNotesSubjectUploads,latestUploads} from "../controllers/file.controllers.js"
 import multer from 'multer'
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -32,6 +32,11 @@ router.route("/notes/count").get(NoteLengthDB)
 router.route("/exp/count").get(ExpLengthDB)
 router.route("/qp/count").get(QpLengthDB)
 router.route("/user/count").get(UserLengthDB)
+// file/notes/sub/count
+router.route("/notes/sub/count").get(totalNotesSubjectUploads);
+// file/notes/latest
+router.route("/notes/latest").get(latestUploads);
+
 
 
 

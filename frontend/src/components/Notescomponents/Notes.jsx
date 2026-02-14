@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router';
 import Navbar from '../Navbar.jsx';
+import axios from 'axios'
+import { API_URL } from '../../config.js';
+import { useState } from 'react';
 
 const Notes = () => {
+  const [response,setResponse] = useState('')
     const navigate = useNavigate();
+
+    const getNumberofNotes = async ()=>{
+      try {
+        const responsedata= await axios.get(`${API_URL}/file/notes/sub/count`);
+        setResponse(responsedata.data.count);       
+        
+      } catch (error) {
+        console.log(error,"Error while getting Total Notes")
+      }
+
+    }
+
+    useEffect(()=>{
+      getNumberofNotes()
+    },[])
+
+
     const courses = [
     {
       title: "System Programming",
@@ -12,7 +33,8 @@ const Notes = () => {
       accentColor: "bg-blue-400",
       textColor: "text-blue-700",
       hoverColor: "hover:bg-blue-50",
-      route:"/spccnotes"
+      route:"/spccnotes",
+      totalUploads : response.spcc
 
     },
     {
@@ -22,7 +44,8 @@ const Notes = () => {
       accentColor: "bg-purple-400",
       textColor: "text-purple-700",
       hoverColor: "hover:bg-purple-50",
-      route:"/iotnotes"
+      route:"/iotnotes",
+      totalUploads : response.iot
     },
     {
       title: "Artificial",
@@ -31,7 +54,8 @@ const Notes = () => {
       accentColor: "bg-green-400",
       textColor: "text-green-700",
       hoverColor: "hover:bg-green-50",
-      route:"/ainotes"
+      route:"/ainotes",
+      totalUploads : response.ai
     },
     {
       title: "Cyrptography",
@@ -40,7 +64,8 @@ const Notes = () => {
       accentColor: "bg-orange-400",
       textColor: "text-orange-700",
       hoverColor: "hover:bg-orange-50",
-      route:"/cssnotes"
+      route:"/cssnotes",
+      totalUploads : response.css
     },
     {
       title: "Mobile",
@@ -49,7 +74,8 @@ const Notes = () => {
       accentColor: "bg-red-400",
       textColor: "text-red-700",
       hoverColor: "hover:bg-red-50",
-      route:"/mcnotes"
+      route:"/mcnotes",
+      totalUploads : response.mc
     }
   ];
   return (
@@ -61,6 +87,9 @@ const Notes = () => {
             {courses.map((course, index) => (
               <div key={index} className="w-full">
                 <div className={`relative bg-linear-to-br ${course.gradient} h-72 sm:h-80 w-full rounded-3xl p-6 flex items-center justify-center flex-col shadow-2xl overflow-hidden group transition-transform duration-300 hover:scale-105`}>
+                  <div className={`${course.accentColor} p-2 font-bold text-white rounded-md border-${course.gradient} border text-md`}>
+                    {`Total Notes Uploadede ${course.totalUploads}`}
+                  </div>
                   
                   {/* Decorative elements */}
                   <div className={`absolute top-0 right-0 w-32 h-32 ${course.accentColor} rounded-full opacity-20 -mr-16 -mt-16`}></div>

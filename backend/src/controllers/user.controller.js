@@ -56,21 +56,30 @@ const registerUser = asyncHandler(async (req,res)=>{
 
 })
 const loginUser = asyncHandler(async(req,res)=>{
-
-    // req body -> data 
+// req body -> data 
     // username or email
     // find the user
     // password check
     // access and refresh token 
     // send cookie
+    let email = "";
+    let username = "";
 
-    const {email,password} =req.body
-    if (!email){
-        throw new ApiError(400,"Email is required")
+    const { data, password } = req.body;
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    if (emailPattern.test(data)) {
+        email = data;
+    } else {
+        username = data.toLowerCase();
+    }
+    
+    if (!email && !username ){
+        throw new ApiError(400,"email is required ")
     }
 
-    const user = await User.findOne({email})
-
+    const user = await User.findOne({ $or : [{username},{email}]})
     if(!user){
         throw new ApiError(404,"User not found")
     }

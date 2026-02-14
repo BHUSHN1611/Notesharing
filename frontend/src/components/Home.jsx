@@ -2,6 +2,7 @@ import { BookOpen, Upload, Search, Users, ArrowRight, FileText, Sparkles } from 
 import { useNavigate } from 'react-router';
 import Navbar from "../components/Navbar.jsx"
 import Footer from './Footer.jsx';
+import Headline from './Headline.jsx';
 
 
 const Home = () => {
@@ -11,8 +12,13 @@ const Home = () => {
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50">
       <Navbar/>
       {/* Hero Section */}
+      
       <div className="relative overflow-hidden">
         {/* Decorative background elements */}
+        <div className='flex justify-center'>
+          <div className='p-2 mt-7 w-full'><Headline/></div>
+        </div>
+        
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>

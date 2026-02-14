@@ -179,6 +179,28 @@ const ExpLengthDB = lengthDB(Exp);
 const QpLengthDB = lengthDB(Qp);
 const UserLengthDB = lengthDB(User);
 
+const totalNotesSubjectUploads = asyncHandler(async(req,res,next)=>{
+  const subject = ['spcc','mc','iot','ai','css'];
+  const TotalSubjectUploads = {};
+for (const element of subject) {
+  const numberOfUploads = await Notes.countDocuments({ subject: element });
+  TotalSubjectUploads[element] = numberOfUploads;
+}
+  res.json({ count: TotalSubjectUploads });
+})
+
+const latestUploads = asyncHandler(async (req, res, next) => {
+
+  const latestUploadedDocuments = await Notes.find().sort({ createdAt: -1 }).limit(5);
+
+  if (!latestUploadedDocuments || latestUploadedDocuments.length === 0) {
+    throw new ApiError(400, "Error occurred while fetching latest uploads");
+  }
+  const titles = latestUploadedDocuments.map(doc => doc.title)
+  res.json({titles});
+});
+
+
 const viewAllFiles = asyncHandler(async(req,res)=>{
     try {
         const notes = await Notes.find().sort({ createdAt: -1 })
@@ -193,7 +215,9 @@ export {fileUpload,viewAllFiles,
   deleteNotesFile,deleteExpFile,deleteQpFile,
   viewNotes,viewExp,viewQp,
   viewNotesFile,viewQpFile,viewExpFile,
-  NoteLengthDB,ExpLengthDB,QpLengthDB,UserLengthDB}
+  NoteLengthDB,ExpLengthDB,QpLengthDB,UserLengthDB,
+  totalNotesSubjectUploads,latestUploads
+}
 // 
 //  const downloadNotesFile = asyncHandler(async(req,res)=>{
 //     try {

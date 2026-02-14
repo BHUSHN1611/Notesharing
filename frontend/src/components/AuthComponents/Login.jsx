@@ -6,14 +6,14 @@ import { API_URL } from '../../config.js';
 
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [data,setData] = useState('')
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const LoginUser = async (event) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ const Login = () => {
 
     try {
       // Simulating API call - replace with your actual API call
-      const res = await axios.post(`${API_URL}/user/login`, {email,password,}
+      const res = await axios.post(`${API_URL}/user/login`, {data,password,}
         ,{ withCredentials: true }
       );
       
@@ -38,7 +38,7 @@ const Login = () => {
       
       // Clear form
       setTimeout(() => {
-        setEmail('');
+        setData('');
         setPassword('');
       }, 2000);
     } catch (error) {
@@ -67,18 +67,21 @@ const Login = () => {
           <div className="space-y-6">
             {/* Email Input */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Email
+              <label
+               className="block text-sm font-semibold text-gray-700 mb-2 ">
+                Gmail or Username
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Mail className="h-5 w-5 text-gray-400" />
                 </div>
                 <input
-                  type="email"
-                  placeholder="Enter your gmail"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="name"
+                  placeholder="Enter your gmail or Username "
+                  value={data}
+                  onChange={(e) => {
+                    setData(e.target.value);
+                  }}
                   className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-300 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                   required
                 />

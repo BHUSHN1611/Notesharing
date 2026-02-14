@@ -4,10 +4,17 @@ import { API_URL } from '../../config.js';
 import axios from "axios";
 import { useState } from 'react';
 
+
 const Notestructure = ({ notes, subject }) => {
 
-const [showDeleteModal, setShowDeleteModal] = useState(false);
-const [selectedId, setSelectedId] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+  const [notification, setNotification] = useState(null);
+
+const showNotification = (type, message) => {
+  setNotification({ type, message });
+  setTimeout(() => setNotification(null), 3000);
+  };
 
   const hasNotes = notes && notes.length > 0;
   // console.log(notes, subject);
@@ -28,12 +35,18 @@ const [selectedId, setSelectedId] = useState(null);
   }}
   const NoteshandleDelete = async (id) => {
     try {
-      await axios.delete(`${API_URL}/file/notes/delete/${id}`, {
+      const res = await axios.delete(`${API_URL}/file/notes/delete/${id}`, {
         withCredentials: true
       })
-      setNotes(prev => prev.filter(note => note._id !== id));
+      if(!res){
+        showNotification("error","Unauthorized access")
+      }
+      showNotification('success',"file delete successfully")
+
     } catch (err) {
-      alert("Delete failed")
+      console.log("error occured while deleting",err);
+      showNotification("error","error occured while deleting");
+      
     }
 }
   return (
@@ -109,37 +122,49 @@ const [selectedId, setSelectedId] = useState(null);
         </div>
       )}
 
-      {showDeleteModal && (
-  <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-    <div className="bg-white rounded-lg p-6 w-[90%] max-w-md">
-      <h2 className="text-lg font-semibold">
-        Delete Note?
-      </h2>
-      <p className="text-gray-600 mt-2">
-        Are you sure?
-      </p>
+        {showDeleteModal && (
+      <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+        <div className="bg-white rounded-lg p-6 w-[90%] max-w-md">
+          <h2 className="text-lg font-semibold">
+            Delete Note?
+          </h2>
+          <p className="text-gray-600 mt-2">
+            Are you sure?
+          </p>
 
-      <div className="flex justify-end gap-3 mt-6">
-        <button
-          onClick={() => setShowDeleteModal(false)}
-          className="px-4 py-2 border rounded"
-        >
-          Cancel
-        </button>
+          <div className="flex justify-end gap-3 mt-6">
+            <button
+              onClick={() => setShowDeleteModal(false)}
+              className="px-4 py-2 border rounded"
+            >
+              Cancel
+            </button>
 
-        <button
-          onClick={async () => {
-            await NoteshandleDelete(selectedId);
-            setShowDeleteModal(false);
-          }}
-          className="px-4 py-2 bg-red-600 text-white rounded"
-        >
-          Delete
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+            <button
+              onClick={async () => {
+                await NoteshandleDelete(selectedId);
+                setShowDeleteModal(false);
+              }}
+              className="px-4 py-2 bg-red-600 text-white rounded"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>)}
+
+      {notification && (
+              <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-lg shadow-lg animate-slide-in ${
+                notification.type === 'success' ? 'bg-green-500' : 'bg-red-500'
+              } text-white`}>
+                {notification.type === 'success' ? (
+                  <CheckCircle2 size={20} />
+                ) : (
+                  <AlertCircle size={20} />
+                )}
+                <span className="font-medium">{notification.message}</span>
+              </div>
+            )}
 
     </div>
   );
