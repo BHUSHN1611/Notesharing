@@ -88,7 +88,7 @@ const Notes = () => {
               <div key={index} className="w-full">
                 <div className={`relative bg-linear-to-br ${course.gradient} h-72 sm:h-80 w-full rounded-3xl p-6 flex items-center justify-center flex-col shadow-2xl overflow-hidden group transition-transform duration-300 hover:scale-105`}>
                   <div className={`${course.accentColor} p-2 font-bold text-white rounded-md border-${course.gradient} border text-md`}>
-                    {`Total Notes Uploadede ${course.totalUploads}`}
+                    {`Total Notes Uploaded ${course.totalUploads}`}
                   </div>
                   
                   {/* Decorative elements */}
