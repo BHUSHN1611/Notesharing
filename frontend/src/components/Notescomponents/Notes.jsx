@@ -34,7 +34,8 @@ const Notes = () => {
       textColor: "text-blue-700",
       hoverColor: "hover:bg-blue-50",
       route:"/spccnotes",
-      totalUploads : response.spcc
+      totalUploads : response.spcc,
+      initial:"SPCC"
 
     },
     {
@@ -45,7 +46,8 @@ const Notes = () => {
       textColor: "text-purple-700",
       hoverColor: "hover:bg-purple-50",
       route:"/iotnotes",
-      totalUploads : response.iot
+      totalUploads : response.iot,
+      initial:"IOT"
     },
     {
       title: "Artificial",
@@ -55,7 +57,8 @@ const Notes = () => {
       textColor: "text-green-700",
       hoverColor: "hover:bg-green-50",
       route:"/ainotes",
-      totalUploads : response.ai
+      totalUploads : response.ai,
+      initial:"AI"
     },
     {
       title: "Cyrptography",
@@ -65,7 +68,8 @@ const Notes = () => {
       textColor: "text-orange-700",
       hoverColor: "hover:bg-orange-50",
       route:"/cssnotes",
-      totalUploads : response.css
+      totalUploads : response.css,
+      initial:"CSS"
     },
     {
       title: "Mobile",
@@ -75,7 +79,8 @@ const Notes = () => {
       textColor: "text-red-700",
       hoverColor: "hover:bg-red-50",
       route:"/mcnotes",
-      totalUploads : response.mc
+      totalUploads : response.mc,
+      initial:"Mc"
     }
   ];
   return (
@@ -85,7 +90,8 @@ const Notes = () => {
         <div className="max-w-8xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             {courses.map((course, index) => (
-              <div key={index} className="w-full">
+              // {/* Desktop Component */}
+              <div key={index} className="hidden md:block w-full">
                 <div className={`relative bg-linear-to-br ${course.gradient} h-72 sm:h-80 w-full rounded-3xl p-6 flex items-center justify-center flex-col shadow-2xl overflow-hidden group transition-transform duration-300 hover:scale-105`}>
                   <div className={`${course.accentColor} p-2 font-bold text-white rounded-md border-${course.gradient} border text-md`}>
                     {`Total Notes Uploaded ${course.totalUploads}`}
@@ -112,6 +118,36 @@ const Notes = () => {
                     View Notes
                   </button>
                 </div>
+              </div>))}
+           {/* Mobile Component */}
+            {courses.map((course,index)=>(
+              <div key={index} className='block md:hidden w-full'>
+                <div className={`relative bg-linear-to-br ${course.gradient} h-26 w-full rounded-2xl flex items-center justify-around  shadow-2xl overflow-hidden group transition-transform duration-300 hover:scale-105`}>
+
+                  <div className="relative z-10 text-center flex items-center justify-center px-2">
+                    <h1 className="font-bold text-3xl text-white leading-tight drop-shadow-lg">
+                      {course.initial}<br />
+                    </h1>
+                  </div>
+                  
+                  <div className='text-3xl p-2 font-bold text-white rounded-md'>
+                    {`${course.totalUploads}/6`}
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className={`absolute top-0 right-0 w-32 h-32 ${course.accentColor} rounded-full opacity-20 -mr-16 -mt-16`}></div>
+                  <div className={`absolute bottom-0 left-0 w-24 h-24 ${course.accentColor} rounded-full opacity-20 -ml-12 -mb-12`}></div>                  
+                  
+                  {/* Button */}
+                  <button 
+                  onClick={()=>{
+                      navigate(course.route)
+                  }}
+                  className={`relative z-10 bg-white ${course.textColor} font-semibold px-6 py-3 rounded-xl  transition-all duration-300 ${course.hoverColor} hover:shadow-lg hover:-translate-y-1 active:translate-y-0`}>
+                    View Notes
+                  </button>
+                </div>
+               
               </div>
             ))}
           </div>

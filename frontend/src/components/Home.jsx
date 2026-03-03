@@ -14,11 +14,13 @@ const Home = () => {
       {/* Hero Section */}
       
       <div className="relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className='flex justify-center'>
-          <div className='p-2 mt-7 w-full'><Headline/></div>
-        </div>
         
+        <div className='flex justify-center'>
+          <div className='p-2 mt-5 w-full'><Headline/></div>
+        </div> 
+        
+        
+        {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -45,9 +47,11 @@ const Home = () => {
             <p className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 mb-10 px-4">
               Share knowledge, ace your exams, and build a collaborative learning community. Access notes, experiments, and question papers all in one place.
             </p>
+            
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
+              
               <button
                 onClick={()=>{
                   navigate("/viewallnotes")

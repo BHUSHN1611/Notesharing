@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from "./components/Home.jsx"
 
 import Uploadfile from "./components/Uploadfile.jsx";
@@ -40,52 +39,49 @@ function App() {
   return(
     <div className="h-full">
       <BrowserRouter> 
-      
-      <Routes>
-        <Route path="/*" element={<Notfound/>}/>
-        
-        <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Mainpage/>} />
+        <Routes>
+          <Route path="/*" element={<Notfound/>}/>
+          
+          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Mainpage/>} />
 
-        <Route path="/upload" element={<Uploadfile/>} />
+          <Route path="/upload" element={<Uploadfile/>} />
 
-        <Route path="/viewallnotes" element={<Notes/>}/>
-        <Route path="/viewallqp" element={<Question/>}/>
-        <Route path="/viewallexp" element={<Experiement/>}/>
-
-       
-        <Route path="/mcnotes" element={<Mcnotes/>}/>
-        <Route path="/spccnotes" element={<Spccnotes/>}/>
-        <Route path="/ainotes" element={<Ainotes/>}/>
-        <Route path="/iotnotes" element={<Iotnotes/>}/>
-        <Route path="/cssnotes" element={<Cssnotes/>}/>
-
-        <Route path="/mcqp" element={<Mcqp/>}/>
-        <Route path="/spccqp" element={<Spccqp/>}/>
-        <Route path="/aiqp" element={<Aiqp/>}/>
-        <Route path="/iotqp" element={<Iotqp/>}/>
-        <Route path="/cssqp" element={<Cssqp/>}/>
-
-        <Route path="/mcexp" element={<Mcexp/>}/>
-        <Route path="/spccexp" element={<Spccexp/>}/>
-        <Route path="/aiexp" element={<Aiexp/>}/>
-        <Route path="/iotexp" element={<Iotexp/>}/>
-        <Route path="/cssexp" element={<Cssexp/>}/>
-        <Route path="/ccexp" element={<Ccexp/>}/>
-
-        <Route path="/test" element={<Resource/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
-
-        <Route path="/main" element={<Mainpage/>}/>
-        <Route path="/userprofile" element={<Userinfo/>}/>
-
+          <Route path="/viewallnotes" element={<Notes/>}/>
+          <Route path="/viewallqp" element={<Question/>}/>
+          <Route path="/viewallexp" element={<Experiement/>}/>
 
         
-        
+          <Route path="/mcnotes" element={<Mcnotes/>}/>
+          <Route path="/spccnotes" element={<Spccnotes/>}/>
+          <Route path="/ainotes" element={<Ainotes/>}/>
+          <Route path="/iotnotes" element={<Iotnotes/>}/>
+          <Route path="/cssnotes" element={<Cssnotes/>}/>
 
-      </Routes>
-      
+          <Route path="/mcqp" element={<Mcqp/>}/>
+          <Route path="/spccqp" element={<Spccqp/>}/>
+          <Route path="/aiqp" element={<Aiqp/>}/>
+          <Route path="/iotqp" element={<Iotqp/>}/>
+          <Route path="/cssqp" element={<Cssqp/>}/>
+
+          <Route path="/mcexp" element={<Mcexp/>}/>
+          <Route path="/spccexp" element={<Spccexp/>}/>
+          <Route path="/aiexp" element={<Aiexp/>}/>
+          <Route path="/iotexp" element={<Iotexp/>}/>
+          <Route path="/cssexp" element={<Cssexp/>}/>
+          <Route path="/ccexp" element={<Ccexp/>}/>
+
+          <Route path="/test" element={<Resource/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>
+
+          <Route path="/main" element={<Mainpage/>}/>
+          <Route path="/userprofile" element={<Userinfo/>}/>
+
+
+
+
+        </Routes>
       </BrowserRouter>
      
     </div>

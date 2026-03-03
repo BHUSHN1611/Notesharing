@@ -37,9 +37,4 @@ router.route("/notes/sub/count").get(totalNotesSubjectUploads);
 // file/notes/latest
 router.route("/notes/latest").get(latestUploads);
 
-
-
-
-
-
 export default router;
