@@ -34,6 +34,7 @@ import Register from "./components/AuthComponents/Register.jsx";
 import Login from "./components/AuthComponents/Login.jsx";
 import Mainpage from "./components/Mainpage.jsx";
 import Userinfo from "./components/AuthComponents/Userinfo.jsx";
+import Alluser from './components/AdminComponents/Alluser.jsx';
 
 function App() {
   return(
@@ -78,9 +79,7 @@ function App() {
           <Route path="/main" element={<Mainpage/>}/>
           <Route path="/userprofile" element={<Userinfo/>}/>
 
-
-
-
+          <Route path="/alluser" element={<Alluser/>}/>
         </Routes>
       </BrowserRouter>
      
