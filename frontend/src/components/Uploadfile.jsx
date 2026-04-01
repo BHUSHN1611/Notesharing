@@ -33,7 +33,7 @@ const Uploadfile = () => {
     formData.append("pdf", file);
     formData.append("fileType", fileType.toLowerCase());
     formData.append("subject", subject.toLowerCase());
-    console.log(formData)
+    // console.log(formData)
 
     try {
       await axios.post(`${API_URL}/file/upload`, formData ,{withCredentials: true});
@@ -47,7 +47,7 @@ const Uploadfile = () => {
 
     } catch (error) {
       console.error("Error while uploading", error);
-      showNotification('error', 'Upload failed. Please try again.');
+      showNotification('error', 'Upload failed.Access denied');
     } finally {
       setIsUploading(false);
     }
