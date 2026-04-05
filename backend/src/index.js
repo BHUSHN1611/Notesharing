@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000
 connectDB() // when the db is connected then only we listen.
 .then(()=>{
     app.listen(port,()=>{
-    console.log("The app is listening on port http://localhost:8000")
+    console.log("Listening")
 })
 })
 .catch((err)=>{
