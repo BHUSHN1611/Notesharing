@@ -5,29 +5,30 @@ import Uploadfile from "./components/Uploadfile.jsx";
 
 import Notfound from "./components/Notfound.jsx";
 
-import Mcnotes from "./components/Notescomponents/Mcnotes.jsx";
-import Spccnotes from "../src/components/Notescomponents/Spccnotes.jsx"
-import Cssnotes from "../src/components/Notescomponents/Cssnotes.jsx"
-import Ainotes from "../src/components/Notescomponents/Ainotes.jsx";
-import Iotnotes from "../src/components/Notescomponents/Iotnotes.jsx"
+import Bdanotes from "./components/Notescomponents/Bdanotes.jsx";
+import Mlnotes from "./components/Notescomponents/Mlnotes.jsx"
+import Cslnotes from "./components/Notescomponents/Cslnotes.jsx"
+import Nlpnotes from "./components/Notescomponents/Nlpnotes.jsx";
+import Irnotes from "./components/Notescomponents/Irnotes.jsx"
 
 
-import Mcqp from "./components/Qpcomponents/Mcqp.jsx";
-import Aiqp from "./components/Qpcomponents/Aiqp.jsx"
-import Spccqp from './components/Qpcomponents/Spccqp.jsx'
-import Iotqp from "./components/Qpcomponents/Iotqp.jsx"
-import Cssqp  from "./components/Qpcomponents/Cssqp.jsx"
-import Ccexp from "./components/Expcomponent/Ccexp.jsx";
+import Bdaqp from "./components/Qpcomponents/Bdaqp.jsx";
+import Mlqp from "./components/Qpcomponents/Mlqp.jsx"
+import Cslqp from './components/Qpcomponents/Cslqp.jsx'
+import Nlpqp from "./components/Qpcomponents/Nlpqp.jsx"
+import Irqp  from "./components/Qpcomponents/Irqp.jsx"
 
 import Notes from '../src/components/Notescomponents/Notes.jsx'
 import Question from '../src/components/Qpcomponents/Question.jsx'
 import Experiement from "./components/Expcomponent/Experiement.jsx";
 
-import Mcexp from "./components/Expcomponent/Mcexp.jsx"
-import Iotexp from "./components/Expcomponent/Iotexp.jsx";
-import Cssexp from "./components/Expcomponent/Cssexp.jsx";
-import Aiexp from "./components/Expcomponent/Aiexp.jsx";
-import Spccexp from "./components/Expcomponent/Spccexp.jsx";
+import Bdaexp from "./components/Expcomponent/Bdaexp.jsx"
+import Mlexp from "./components/Expcomponent/Mlexp.jsx";
+import Cslexp from "./components/Expcomponent/Cslexp.jsx";
+import Irexp from "./components/Expcomponent/Irexp.jsx";
+import Nlpexp from "./components/Expcomponent/Nlpexp.jsx";
+
+import Ccexp from "./components/Expcomponent/Bdaexp.jsx";
 
 import Resource from "./components/Resource.jsx";
 import Register from "./components/AuthComponents/Register.jsx";
@@ -53,23 +54,24 @@ function App() {
           <Route path="/viewallexp" element={<Experiement/>}/>
 
         
-          <Route path="/mcnotes" element={<Mcnotes/>}/>
-          <Route path="/spccnotes" element={<Spccnotes/>}/>
-          <Route path="/ainotes" element={<Ainotes/>}/>
-          <Route path="/iotnotes" element={<Iotnotes/>}/>
-          <Route path="/cssnotes" element={<Cssnotes/>}/>
+          <Route path="/bdanotes" element={<Bdanotes/>}/>
+          <Route path="/mlnotes" element={<Mlnotes/>}/>
+          <Route path="/nlpnotes" element={<Nlpnotes/>}/>
+          <Route path="/irnotes" element={<Irnotes/>}/>
+          <Route path="/cslnotes" element={<Cslnotes/>}/>
 
-          <Route path="/mcqp" element={<Mcqp/>}/>
-          <Route path="/spccqp" element={<Spccqp/>}/>
-          <Route path="/aiqp" element={<Aiqp/>}/>
-          <Route path="/iotqp" element={<Iotqp/>}/>
-          <Route path="/cssqp" element={<Cssqp/>}/>
+          <Route path="/bdaqp" element={<Bdaqp/>}/>
+          <Route path="/mlqp" element={<Mlqp/>}/>
+          <Route path="/nlpqp" element={<Nlpqp/>}/>
+          <Route path="/irqp" element={<Irqp/>}/>
+          <Route path="/cslqp" element={<Cslqp/>}/>
 
-          <Route path="/mcexp" element={<Mcexp/>}/>
-          <Route path="/spccexp" element={<Spccexp/>}/>
-          <Route path="/aiexp" element={<Aiexp/>}/>
-          <Route path="/iotexp" element={<Iotexp/>}/>
-          <Route path="/cssexp" element={<Cssexp/>}/>
+          <Route path="/bdaexp" element={<Bdaexp/>}/>
+          <Route path="/mlexp" element={<Mlexp/>}/>
+          <Route path="/cslexp" element={<Cslexp/>}/>
+          <Route path="/irexp" element={<Irexp/>}/>
+          <Route path="/nlpexp" element={<Nlpexp/>}/>
+          
           <Route path="/ccexp" element={<Ccexp/>}/>
 
           <Route path="/test" element={<Resource/>}/>

@@ -3,67 +3,62 @@ import Navbar from '../Navbar.jsx';
 
 const Experiement = () => {
     const navigate = useNavigate();
-    const courses = [
+const courses = [
     {
-      title: "System Programming",
-      subtitle: "and Compiler Construction",
+      title: "Machine",
+      subtitle: "Learning",
       gradient: "from-blue-600 to-blue-800",
       accentColor: "bg-blue-400",
       textColor: "text-blue-700",
+      subtitleColor:"text-blue-200",
       hoverColor: "hover:bg-blue-50",
-      route:"/spccexp",
-      initial:"SPCC"
+      route:"/mlexp",
+      initial:"ML"
 
     },
     {
-      title: "Internet of ",
-      subtitle: "Things",
+      title: "Big Data",
+      subtitle: "Analytics",
       gradient: "from-purple-600 to-purple-800",
       accentColor: "bg-purple-400",
       textColor: "text-purple-700",
+      subtitleColor:"text-purple-200",
       hoverColor: "hover:bg-purple-50",
-      route:"/iotexp",
-      initial:"IOT"
+      route:"/bdaexp",
+      initial:"BDA"
     },
     {
-      title: "Artificial",
-      subtitle: "Intelligence",
+      title: "Natural",
+      subtitle: "Language Processing",
       gradient: "from-green-600 to-green-800",
       accentColor: "bg-green-400",
       textColor: "text-green-700",
+      subtitleColor:"text-green-200",
       hoverColor: "hover:bg-green-50",
-      route:"/aiexp",
-      initial:"AI"
+      route:"/nlpexp",
+      initial:"NLP"
     },
     {
-      title: "Cyrptography",
-      subtitle: "and System Security",
+      title: "Information",
+      subtitle: "Retrieval",
       gradient: "from-orange-600 to-orange-800",
       accentColor: "bg-orange-400",
       textColor: "text-orange-700",
+      subtitleColor:"text-orange-200",
       hoverColor: "hover:bg-orange-50",
-      route:"/cssexp",
-      initial:"CSS"
+      route:"/irexp",
+      initial:"IR"
     },
     {
-      title: "Mobile",
-      subtitle: "Computing",
-      gradient: "from-red-600 to-red-800",
+      title: "Cyber Security",
+      subtitle: "Law",
+      gradient: "from-amber-600 to-red-600",
       accentColor: "bg-red-400",
       textColor: "text-red-700",
+      subtitleColor:"text-red-200",
       hoverColor: "hover:bg-red-50",
-      route:"/mcexp",
-      initial:"MC"
-    },
-    {
-      title: "Cloud",
-      subtitle: "Computing",
-      gradient: "from-blue-400 to-indigo-700",
-      accentColor: "bg-blue-400",
-      textColor: "text-indigo-700",
-      hoverColor: "hover:bg-red-50",
-      route:"/ccexp",
-      initial:"CC"
+      route:"/cslexp",
+      initial:"CSL"
     }
   ];
   return (
@@ -85,7 +80,7 @@ const Experiement = () => {
                 <div className="relative z-10 text-center flex-1 flex items-center justify-center px-2">
                   <h1 className="font-bold text-2xl sm:text-3xl text-white leading-tight drop-shadow-lg">
                     {course.title}<br />
-                    <span className="text-blue-200 text-xl sm:text-2xl">{course.subtitle}</span>
+                    <span className={`${course.subtitleColor} text-xl sm:text-2xl`}>{course.subtitle}</span>
                   </h1>
                 </div>
                 

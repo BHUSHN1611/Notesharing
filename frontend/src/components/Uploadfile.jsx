@@ -125,7 +125,7 @@ const Uploadfile = () => {
                 Subject
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {['SPCC', 'MC', 'AI', 'CSS', 'IOT'].map((sub) => (
+                {['ML', 'BDA', 'NLP', 'IR', 'CSL'].map((sub) => (
                   <label
                     key={sub}
                     className={`flex items-center justify-center px-4 py-3 rounded-lg border-2 cursor-pointer transition-all ${

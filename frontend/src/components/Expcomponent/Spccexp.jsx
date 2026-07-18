@@ -1,11 +1,11 @@
-import Expdownload from "../Download/Expdownload"
+// import Expdownload from "../Download/Expdownload"
 
-const Spccexp = () => {
-  return (
-    <div>
-      <Expdownload url={"/file/viewexp"} sub={'spcc'} subname={'Software programming and Compiler Construction'}/>
-    </div>
-  )
-}
+// const spccexp = () => {
+//   return (
+//     <div>
+//       <Expdownload url={"/file/viewexp"} sub={'bda'} subname={'Big Data and Analytics'}/>
+//     </div>
+//   )
+// }
 
-export default Spccexp
+// export default Bdaexp

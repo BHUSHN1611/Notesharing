@@ -164,6 +164,7 @@ const deleteFile = (model) => asyncHandler(async (req, res) => {
 const deleteNotesFile = deleteFile(Notes);
 const deleteExpFile = deleteFile(Exp);
 const deleteQpFile = deleteFile(Qp);
+
 // calculate the length of document 
 const lengthDB = (model) => asyncHandler(async (req, res) => {
   const numberOfDocuments = await model.countDocuments();
@@ -179,7 +180,7 @@ const QpLengthDB = lengthDB(Qp);
 const UserLengthDB = lengthDB(User);
 
 const totalNotesSubjectUploads = asyncHandler(async(req,res,next)=>{
-  const subject = ['spcc','mc','iot','ai','css'];
+  const subject = ['ml','ir','csl','bda','nlp'];
   const TotalSubjectUploads = {};
 for (const element of subject) {
   const numberOfUploads = await Notes.countDocuments({ subject: element });

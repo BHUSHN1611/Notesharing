@@ -12,7 +12,7 @@ const Notes = () => {
     const getNumberofNotes = async ()=>{
       try {
         const responsedata= await axios.get(`${API_URL}/file/notes/sub/count`);
-        setResponse(responsedata.data.count);       
+        setResponse(responsedata.data.count);   
         
       } catch (error) {
         console.log(error,"Error while getting Total Notes")
@@ -25,62 +25,67 @@ const Notes = () => {
     },[])
 
 
-    const courses = [
+  const courses = [
     {
-      title: "System Programming",
-      subtitle: "and Compiler Construction",
+      title: "Machine",
+      subtitle: "Learning",
       gradient: "from-blue-600 to-blue-800",
       accentColor: "bg-blue-400",
       textColor: "text-blue-700",
+      subtitleColor:"text-blue-200",
       hoverColor: "hover:bg-blue-50",
-      route:"/spccnotes",
-      totalUploads : response.spcc,
-      initial:"SPCC"
+      route:"/mlnotes",
+      totalUploads : response.ml,
+      initial:"ML"
 
     },
     {
-      title: "Internet of ",
-      subtitle: "Things",
+      title: "Big Data",
+      subtitle: "Analytics",
       gradient: "from-purple-600 to-purple-800",
       accentColor: "bg-purple-400",
       textColor: "text-purple-700",
+      subtitleColor:"text-purple-200",
       hoverColor: "hover:bg-purple-50",
-      route:"/iotnotes",
-      totalUploads : response.iot,
-      initial:"IOT"
+      route:"/bdanotes",
+      totalUploads : response.bda,
+      initial:"BDA"
     },
     {
-      title: "Artificial",
-      subtitle: "Intelligence",
+      title: "Natural",
+      subtitle: "Language Processing",
       gradient: "from-green-600 to-green-800",
       accentColor: "bg-green-400",
       textColor: "text-green-700",
+      subtitleColor:"text-green-200",
       hoverColor: "hover:bg-green-50",
-      route:"/ainotes",
-      totalUploads : response.ai,
-      initial:"AI"
+      route:"/nlpnotes",
+      totalUploads : response.nlp,
+      initial:"NLP"
     },
     {
-      title: "Cyrptography",
-      subtitle: "and System Security",
+      title: "Information",
+      subtitle: "Retrieval",
       gradient: "from-orange-600 to-orange-800",
       accentColor: "bg-orange-400",
       textColor: "text-orange-700",
+      subtitleColor:"text-orange-200",
       hoverColor: "hover:bg-orange-50",
-      route:"/cssnotes",
-      totalUploads : response.css,
-      initial:"CSS"
+      route:"/irnotes",
+      totalUploads : response.ir,
+      initial:"IR"
     },
     {
-      title: "Mobile",
-      subtitle: "Computing",
+      title: "Cyber Security",
+      subtitle: "Law",
       gradient: "from-amber-600 to-red-600",
       accentColor: "bg-red-400",
       textColor: "text-red-700",
+      subtitleColor:"text-red-200",
       hoverColor: "hover:bg-red-50",
-      route:"/mcnotes",
-      totalUploads : response.mc,
-      initial:"Mc"
+      route:"/cslnotes",
+      totalUploads : response.csl,
+      initial:"CSL"
     }
   ];
   return (
@@ -105,7 +110,7 @@ const Notes = () => {
                   <div className="relative z-10 text-center flex-1 flex items-center justify-center px-2">
                     <h1 className="font-bold text-2xl sm:text-3xl text-white leading-tight drop-shadow-lg">
                       {course.title}<br />
-                      <span className="text-blue-200 text-xl sm:text-2xl">{course.subtitle}</span>
+                      <span className={`${course.subtitleColor} text-xl sm:text-2xl`}>{course.subtitle}</span>
                     </h1>
                   </div>
                   
