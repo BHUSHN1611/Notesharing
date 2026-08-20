@@ -1,4 +1,4 @@
-import { Menu, X ,User} from 'lucide-react';
+import { Menu, X ,User ,NotebookText } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
@@ -29,6 +29,7 @@ export default function Navbar() {
   const Expnavigate = () => {navigate("/viewallexp")};
   const Qpnavigate = () => {navigate("/viewallqp")};
   const Uploadnavigate = () => {navigate("/upload")};
+  const Booksnavigate = () => {navigate("https://books.10xeng.xyz/books/sem7")}
 
   return (
     <nav className="bg-blue-600  shadow-md rounded-b-lg">
@@ -63,6 +64,9 @@ export default function Navbar() {
             <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
             </button>
+            <button onClick={Booksnavigate} className="hover:text-blue-200 transition bg-red-600 rounded-xl p-2">
+             <NotebookText/>
+            </button>
             <div className='flex justify-center items-center bg-red-500 px-3 py-2 rounded-lg'>
               <User size={28}/>         
               <a href="/userprofile" 
@@ -90,6 +94,9 @@ export default function Navbar() {
             </button>
             <button onClick={Uploadnavigate} className="hover:text-blue-200 transition">
               UPLOAD-NOTES
+            </button>
+            <button onClick={Booksnavigate} className="hover:text-blue-200 transition">
+              Books
             </button>
           </div>
         )}
